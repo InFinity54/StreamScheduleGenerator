@@ -36,8 +36,13 @@
             GraphicalElements_ImgBgPath = new TextBox();
             GraphicalElements_ImgBgFind = new Button();
             GraphicalElements_Group = new GroupBox();
+            GraphicalElements_Font = new ComboBox();
+            GraphicalElements_FontLabel = new Label();
             SettingsUserFileChoose = new OpenFileDialog();
             Colors_Group = new GroupBox();
+            Colors_OnDayContrastColorSelect = new Button();
+            Colors_OnDayContrastColor = new TextBox();
+            Colors_OnDayContrastColorLabel = new Label();
             Colors_OnDayColorSelect = new Button();
             Colors_OnDayColor = new TextBox();
             Colors_OnDayColorLabel = new Label();
@@ -48,9 +53,6 @@
             Colors_TitlesColor = new TextBox();
             Colors_TitlesColorLabel = new Label();
             SettingsColorPicker = new ColorDialog();
-            Colors_OnDayContrastColorSelect = new Button();
-            Colors_OnDayContrastColor = new TextBox();
-            Colors_OnDayContrastColorLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)Header_Icon).BeginInit();
             GraphicalElements_Group.SuspendLayout();
             Colors_Group.SuspendLayout();
@@ -59,7 +61,7 @@
             // Footer_SaveAndClose
             // 
             Footer_SaveAndClose.ForeColor = Color.Black;
-            Footer_SaveAndClose.Location = new Point(593, 526);
+            Footer_SaveAndClose.Location = new Point(593, 273);
             Footer_SaveAndClose.Name = "Footer_SaveAndClose";
             Footer_SaveAndClose.Size = new Size(179, 23);
             Footer_SaveAndClose.TabIndex = 0;
@@ -90,7 +92,7 @@
             // GraphicalElements_ImgBgLabel
             // 
             GraphicalElements_ImgBgLabel.AutoSize = true;
-            GraphicalElements_ImgBgLabel.Location = new Point(6, 28);
+            GraphicalElements_ImgBgLabel.Location = new Point(12, 56);
             GraphicalElements_ImgBgLabel.Name = "GraphicalElements_ImgBgLabel";
             GraphicalElements_ImgBgLabel.Size = new Size(113, 17);
             GraphicalElements_ImgBgLabel.TabIndex = 4;
@@ -98,16 +100,16 @@
             // 
             // GraphicalElements_ImgBgPath
             // 
-            GraphicalElements_ImgBgPath.Location = new Point(125, 25);
+            GraphicalElements_ImgBgPath.Location = new Point(131, 53);
             GraphicalElements_ImgBgPath.Name = "GraphicalElements_ImgBgPath";
-            GraphicalElements_ImgBgPath.Size = new Size(535, 23);
+            GraphicalElements_ImgBgPath.Size = new Size(529, 23);
             GraphicalElements_ImgBgPath.TabIndex = 5;
             GraphicalElements_ImgBgPath.Leave += GraphicalElements_ImgBgPath_Leave;
             // 
             // GraphicalElements_ImgBgFind
             // 
             GraphicalElements_ImgBgFind.ForeColor = Color.Black;
-            GraphicalElements_ImgBgFind.Location = new Point(666, 25);
+            GraphicalElements_ImgBgFind.Location = new Point(666, 53);
             GraphicalElements_ImgBgFind.Name = "GraphicalElements_ImgBgFind";
             GraphicalElements_ImgBgFind.Size = new Size(88, 23);
             GraphicalElements_ImgBgFind.TabIndex = 6;
@@ -117,16 +119,36 @@
             // 
             // GraphicalElements_Group
             // 
+            GraphicalElements_Group.Controls.Add(GraphicalElements_Font);
+            GraphicalElements_Group.Controls.Add(GraphicalElements_FontLabel);
             GraphicalElements_Group.Controls.Add(GraphicalElements_ImgBgLabel);
             GraphicalElements_Group.Controls.Add(GraphicalElements_ImgBgFind);
             GraphicalElements_Group.Controls.Add(GraphicalElements_ImgBgPath);
             GraphicalElements_Group.ForeColor = Color.White;
             GraphicalElements_Group.Location = new Point(12, 73);
             GraphicalElements_Group.Name = "GraphicalElements_Group";
-            GraphicalElements_Group.Size = new Size(760, 61);
+            GraphicalElements_Group.Size = new Size(760, 87);
             GraphicalElements_Group.TabIndex = 7;
             GraphicalElements_Group.TabStop = false;
             GraphicalElements_Group.Text = "Éléments graphiques";
+            // 
+            // GraphicalElements_Font
+            // 
+            GraphicalElements_Font.FormattingEnabled = true;
+            GraphicalElements_Font.Location = new Point(131, 22);
+            GraphicalElements_Font.Name = "GraphicalElements_Font";
+            GraphicalElements_Font.Size = new Size(623, 25);
+            GraphicalElements_Font.Sorted = true;
+            GraphicalElements_Font.TabIndex = 8;
+            // 
+            // GraphicalElements_FontLabel
+            // 
+            GraphicalElements_FontLabel.AutoSize = true;
+            GraphicalElements_FontLabel.Location = new Point(6, 25);
+            GraphicalElements_FontLabel.Name = "GraphicalElements_FontLabel";
+            GraphicalElements_FontLabel.Size = new Size(119, 17);
+            GraphicalElements_FontLabel.TabIndex = 7;
+            GraphicalElements_FontLabel.Text = "Police d'écriture :";
             // 
             // SettingsUserFileChoose
             // 
@@ -147,12 +169,39 @@
             Colors_Group.Controls.Add(Colors_TitlesColor);
             Colors_Group.Controls.Add(Colors_TitlesColorLabel);
             Colors_Group.ForeColor = Color.White;
-            Colors_Group.Location = new Point(12, 140);
+            Colors_Group.Location = new Point(12, 166);
             Colors_Group.Name = "Colors_Group";
             Colors_Group.Size = new Size(760, 88);
             Colors_Group.TabIndex = 8;
             Colors_Group.TabStop = false;
             Colors_Group.Text = "Couleurs";
+            // 
+            // Colors_OnDayContrastColorSelect
+            // 
+            Colors_OnDayContrastColorSelect.ForeColor = Color.Black;
+            Colors_OnDayContrastColorSelect.Location = new Point(579, 52);
+            Colors_OnDayContrastColorSelect.Name = "Colors_OnDayContrastColorSelect";
+            Colors_OnDayContrastColorSelect.Size = new Size(66, 23);
+            Colors_OnDayContrastColorSelect.TabIndex = 15;
+            Colors_OnDayContrastColorSelect.Text = "Choisir";
+            Colors_OnDayContrastColorSelect.UseVisualStyleBackColor = true;
+            Colors_OnDayContrastColorSelect.Click += Colors_OnDayContrastColorSelect_Click;
+            // 
+            // Colors_OnDayContrastColor
+            // 
+            Colors_OnDayContrastColor.Location = new Point(473, 52);
+            Colors_OnDayContrastColor.Name = "Colors_OnDayContrastColor";
+            Colors_OnDayContrastColor.Size = new Size(100, 23);
+            Colors_OnDayContrastColor.TabIndex = 14;
+            // 
+            // Colors_OnDayContrastColorLabel
+            // 
+            Colors_OnDayContrastColorLabel.AutoSize = true;
+            Colors_OnDayContrastColorLabel.Location = new Point(329, 55);
+            Colors_OnDayContrastColorLabel.Name = "Colors_OnDayContrastColorLabel";
+            Colors_OnDayContrastColorLabel.Size = new Size(138, 17);
+            Colors_OnDayContrastColorLabel.TabIndex = 13;
+            Colors_OnDayContrastColorLabel.Text = "Jour on (contrasté) :";
             // 
             // Colors_OnDayColorSelect
             // 
@@ -239,39 +288,12 @@
             // 
             SettingsColorPicker.AnyColor = true;
             // 
-            // Colors_OnDayContrastColorSelect
-            // 
-            Colors_OnDayContrastColorSelect.ForeColor = Color.Black;
-            Colors_OnDayContrastColorSelect.Location = new Point(579, 52);
-            Colors_OnDayContrastColorSelect.Name = "Colors_OnDayContrastColorSelect";
-            Colors_OnDayContrastColorSelect.Size = new Size(66, 23);
-            Colors_OnDayContrastColorSelect.TabIndex = 15;
-            Colors_OnDayContrastColorSelect.Text = "Choisir";
-            Colors_OnDayContrastColorSelect.UseVisualStyleBackColor = true;
-            Colors_OnDayContrastColorSelect.Click += Colors_OnDayContrastColorSelect_Click;
-            // 
-            // Colors_OnDayContrastColor
-            // 
-            Colors_OnDayContrastColor.Location = new Point(473, 52);
-            Colors_OnDayContrastColor.Name = "Colors_OnDayContrastColor";
-            Colors_OnDayContrastColor.Size = new Size(100, 23);
-            Colors_OnDayContrastColor.TabIndex = 14;
-            // 
-            // Colors_OnDayContrastColorLabel
-            // 
-            Colors_OnDayContrastColorLabel.AutoSize = true;
-            Colors_OnDayContrastColorLabel.Location = new Point(329, 55);
-            Colors_OnDayContrastColorLabel.Name = "Colors_OnDayContrastColorLabel";
-            Colors_OnDayContrastColorLabel.Size = new Size(138, 17);
-            Colors_OnDayContrastColorLabel.TabIndex = 13;
-            Colors_OnDayContrastColorLabel.Text = "Jour on (contrasté) :";
-            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(33, 33, 33);
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(784, 308);
             Controls.Add(Colors_Group);
             Controls.Add(GraphicalElements_Group);
             Controls.Add(Header_Title);
@@ -317,5 +339,7 @@
         private Button Colors_OnDayContrastColorSelect;
         private TextBox Colors_OnDayContrastColor;
         private Label Colors_OnDayContrastColorLabel;
+        private ComboBox GraphicalElements_Font;
+        private Label GraphicalElements_FontLabel;
     }
 }

@@ -17,5 +17,8 @@
     <Setting Name="scheduleColorDayOnConstrast" Type="System.String" Scope="User">
       <Value Profile="(Default)">#000000</Value>
     </Setting>
+    <Setting Name="scheduleFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

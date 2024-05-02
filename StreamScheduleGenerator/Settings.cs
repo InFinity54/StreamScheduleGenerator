@@ -1,16 +1,30 @@
-﻿namespace StreamScheduleGenerator
+﻿using System.Drawing.Text;
+
+namespace StreamScheduleGenerator
 {
     public partial class Settings : Form
     {
         public Settings()
         {
             InitializeComponent();
+            InitializeFontList();
 
+            GraphicalElements_Font.SelectedIndex = GraphicalElements_Font.FindString(Properties.Settings.Default.scheduleFont);
             GraphicalElements_ImgBgPath.Text = Properties.Settings.Default.scheduleBackgroundImage;
             Colors_TitlesColor.Text = Properties.Settings.Default.scheduleColorTitles;
             Colors_OffDayColor.Text = Properties.Settings.Default.scheduleColorDayOff;
             Colors_OnDayColor.Text = Properties.Settings.Default.scheduleColorDayOn;
             Colors_OnDayContrastColor.Text = Properties.Settings.Default.scheduleColorDayOnConstrast;
+        }
+
+        private void InitializeFontList()
+        {
+            InstalledFontCollection installedFonts = new InstalledFontCollection();
+
+            foreach (FontFamily fontFamily in installedFonts.Families)
+            {
+                GraphicalElements_Font.Items.Add(fontFamily.Name);
+            }
         }
 
         private void Footer_SaveAndClose_Click(object sender, EventArgs e)
@@ -20,6 +34,7 @@
             Properties.Settings.Default.scheduleColorDayOff = Colors_OffDayColor.Text;
             Properties.Settings.Default.scheduleColorDayOn = Colors_OnDayColor.Text;
             Properties.Settings.Default.scheduleColorDayOnConstrast = Colors_OnDayContrastColor.Text;
+            Properties.Settings.Default.scheduleFont = GraphicalElements_Font.Text;
 
             Properties.Settings.Default.Save();
             Close();

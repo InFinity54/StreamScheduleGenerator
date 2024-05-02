@@ -82,5 +82,17 @@ namespace StreamScheduleGenerator.Properties {
                 this["scheduleColorDayOnConstrast"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string scheduleFont {
+            get {
+                return ((string)(this["scheduleFont"]));
+            }
+            set {
+                this["scheduleFont"] = value;
+            }
+        }
     }
 }
