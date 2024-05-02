@@ -5,7 +5,11 @@ namespace StreamScheduleGenerator
         public Generator()
         {
             InitializeComponent();
+            InitializeUI();
+        }
 
+        private void InitializeUI()
+        {
             // Sélection du mois courante
             PlanningMonthSelection_Month.SelectedIndex = DateTime.Now.Month - 1;
 
