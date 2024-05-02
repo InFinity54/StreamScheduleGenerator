@@ -7,11 +7,19 @@
             InitializeComponent();
 
             GraphicalElements_ImgBgPath.Text = Properties.Settings.Default.scheduleBackgroundImage;
+            Colors_TitlesColor.Text = Properties.Settings.Default.scheduleColorTitles;
+            Colors_OffDayColor.Text = Properties.Settings.Default.scheduleColorDayOff;
+            Colors_OnDayColor.Text = Properties.Settings.Default.scheduleColorDayOn;
+            Colors_OnDayContrastColor.Text = Properties.Settings.Default.scheduleColorDayOnConstrast;
         }
 
         private void Footer_SaveAndClose_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.scheduleBackgroundImage = GraphicalElements_ImgBgPath.Text;
+            Properties.Settings.Default.scheduleColorTitles = Colors_TitlesColor.Text;
+            Properties.Settings.Default.scheduleColorDayOff = Colors_OffDayColor.Text;
+            Properties.Settings.Default.scheduleColorDayOn = Colors_OnDayColor.Text;
+            Properties.Settings.Default.scheduleColorDayOnConstrast = Colors_OnDayContrastColor.Text;
 
             Properties.Settings.Default.Save();
             Close();
@@ -37,6 +45,30 @@
             SettingsUserFileChoose.ShowDialog(this);
             GraphicalElements_ImgBgPath.Text = SettingsUserFileChoose.FileName;
             GraphicalElements_ImgBgPath_Leave(sender, e);
+        }
+
+        private void Colors_TitlesColorSelect_Click(object sender, EventArgs e)
+        {
+            SettingsColorPicker.ShowDialog(this);
+            Colors_TitlesColor.Text = ColorUtilities.ColorConvertor.ToHex(SettingsColorPicker.Color);
+        }
+
+        private void Colors_OffDayColorSelect_Click(object sender, EventArgs e)
+        {
+            SettingsColorPicker.ShowDialog(this);
+            Colors_OffDayColor.Text = ColorUtilities.ColorConvertor.ToHex(SettingsColorPicker.Color);
+        }
+
+        private void Colors_OnDayColorSelect_Click(object sender, EventArgs e)
+        {
+            SettingsColorPicker.ShowDialog(this);
+            Colors_OnDayColor.Text = ColorUtilities.ColorConvertor.ToHex(SettingsColorPicker.Color);
+        }
+
+        private void Colors_OnDayContrastColorSelect_Click(object sender, EventArgs e)
+        {
+            SettingsColorPicker.ShowDialog(this);
+            Colors_OnDayContrastColor.Text = ColorUtilities.ColorConvertor.ToHex(SettingsColorPicker.Color);
         }
     }
 }

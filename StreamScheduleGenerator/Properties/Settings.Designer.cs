@@ -34,5 +34,53 @@ namespace StreamScheduleGenerator.Properties {
                 this["scheduleBackgroundImage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string scheduleColorTitles {
+            get {
+                return ((string)(this["scheduleColorTitles"]));
+            }
+            set {
+                this["scheduleColorTitles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF0000")]
+        public string scheduleColorDayOff {
+            get {
+                return ((string)(this["scheduleColorDayOff"]));
+            }
+            set {
+                this["scheduleColorDayOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
+        public string scheduleColorDayOn {
+            get {
+                return ((string)(this["scheduleColorDayOn"]));
+            }
+            set {
+                this["scheduleColorDayOn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
+        public string scheduleColorDayOnConstrast {
+            get {
+                return ((string)(this["scheduleColorDayOnConstrast"]));
+            }
+            set {
+                this["scheduleColorDayOnConstrast"] = value;
+            }
+        }
     }
 }
