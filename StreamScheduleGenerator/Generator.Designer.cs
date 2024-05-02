@@ -70,6 +70,7 @@
             Header_Settings.Size = new Size(50, 50);
             Header_Settings.TabIndex = 2;
             Header_Settings.UseVisualStyleBackColor = true;
+            Header_Settings.Click += Header_Settings_Click;
             // 
             // PlanningMonthSelection_Month
             // 

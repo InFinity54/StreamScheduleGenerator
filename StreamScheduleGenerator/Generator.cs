@@ -19,6 +19,12 @@ namespace StreamScheduleGenerator
             PlanningMonthSelection_Year.SelectedIndex = 0;
         }
 
+        private void Header_Settings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.ShowDialog();
+        }
+
         private void Footer_NewWeek_Click(object sender, EventArgs e)
         {
             TabPage tabPage = new TabPage();
