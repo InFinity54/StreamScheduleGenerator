@@ -35,6 +35,9 @@
             PlanningMonthSelection_Month = new ComboBox();
             PlanningMonthSelection_Year = new ComboBox();
             PlanningMonthSelection_Label = new Label();
+            WeeksSettings_Tabs = new TabControl();
+            Footer_NewWeek = new Button();
+            Footer_GenerationStart = new Button();
             ((System.ComponentModel.ISupportInitialize)Header_Icon).BeginInit();
             SuspendLayout();
             // 
@@ -94,11 +97,44 @@
             PlanningMonthSelection_Label.Text = "Planning du mois de :";
             PlanningMonthSelection_Label.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // WeeksSettings_Tabs
+            // 
+            WeeksSettings_Tabs.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            WeeksSettings_Tabs.Location = new Point(12, 68);
+            WeeksSettings_Tabs.Name = "WeeksSettings_Tabs";
+            WeeksSettings_Tabs.SelectedIndex = 0;
+            WeeksSettings_Tabs.Size = new Size(1043, 470);
+            WeeksSettings_Tabs.TabIndex = 6;
+            // 
+            // Footer_NewWeek
+            // 
+            Footer_NewWeek.ForeColor = Color.Black;
+            Footer_NewWeek.Location = new Point(750, 544);
+            Footer_NewWeek.Name = "Footer_NewWeek";
+            Footer_NewWeek.Size = new Size(143, 23);
+            Footer_NewWeek.TabIndex = 7;
+            Footer_NewWeek.Text = "&Nouvelle semaine";
+            Footer_NewWeek.UseVisualStyleBackColor = true;
+            Footer_NewWeek.Click += Footer_NewWeek_Click;
+            // 
+            // Footer_GenerationStart
+            // 
+            Footer_GenerationStart.ForeColor = Color.Black;
+            Footer_GenerationStart.Location = new Point(899, 544);
+            Footer_GenerationStart.Name = "Footer_GenerationStart";
+            Footer_GenerationStart.Size = new Size(156, 23);
+            Footer_GenerationStart.TabIndex = 8;
+            Footer_GenerationStart.Text = "&Générer le planning";
+            Footer_GenerationStart.UseVisualStyleBackColor = true;
+            // 
             // Generator
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(33, 33, 33);
             ClientSize = new Size(1067, 579);
+            Controls.Add(Footer_GenerationStart);
+            Controls.Add(Footer_NewWeek);
+            Controls.Add(WeeksSettings_Tabs);
             Controls.Add(PlanningMonthSelection_Label);
             Controls.Add(PlanningMonthSelection_Year);
             Controls.Add(PlanningMonthSelection_Month);
@@ -125,5 +161,8 @@
         private ComboBox PlanningMonthSelection_Month;
         private ComboBox PlanningMonthSelection_Year;
         private Label PlanningMonthSelection_Label;
+        private TabControl WeeksSettings_Tabs;
+        private Button Footer_NewWeek;
+        private Button Footer_GenerationStart;
     }
 }
