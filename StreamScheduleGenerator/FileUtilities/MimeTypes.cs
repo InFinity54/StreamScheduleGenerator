@@ -2,7 +2,7 @@
 {
     public class MimeTypes
     {
-        private static Dictionary<string, string> mimeTypes = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> mimeTypes = new Dictionary<string, string>
         {
             { "3dm", "x-world/x-3dmf" },
             { "3dmf", "x-world/x-3dmf" },

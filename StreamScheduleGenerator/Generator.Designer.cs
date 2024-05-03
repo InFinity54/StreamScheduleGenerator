@@ -38,6 +38,7 @@
             WeeksSettings_Tabs = new TabControl();
             Footer_NewWeek = new Button();
             Footer_GenerationStart = new Button();
+            GeneratedScheduleSaveDialog = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)Header_Icon).BeginInit();
             SuspendLayout();
             // 
@@ -127,6 +128,13 @@
             Footer_GenerationStart.TabIndex = 8;
             Footer_GenerationStart.Text = "&Générer le planning";
             Footer_GenerationStart.UseVisualStyleBackColor = true;
+            Footer_GenerationStart.Click += Footer_GenerationStart_Click;
+            // 
+            // GeneratedScheduleSaveDialog
+            // 
+            GeneratedScheduleSaveDialog.DefaultExt = "jpg";
+            GeneratedScheduleSaveDialog.Filter = "Image JPG|*.jpg";
+            GeneratedScheduleSaveDialog.Title = "Où enregistrer le planning de stream généré ?";
             // 
             // Generator
             // 
@@ -165,5 +173,6 @@
         private TabControl WeeksSettings_Tabs;
         private Button Footer_NewWeek;
         private Button Footer_GenerationStart;
+        private SaveFileDialog GeneratedScheduleSaveDialog;
     }
 }
