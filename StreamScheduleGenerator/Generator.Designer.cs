@@ -169,6 +169,7 @@
             Name = "Generator";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Générateur de planning de stream personnalisé";
+            FormClosing += Generator_FormClosing;
             ((System.ComponentModel.ISupportInitialize)Header_Icon).EndInit();
             ResumeLayout(false);
         }

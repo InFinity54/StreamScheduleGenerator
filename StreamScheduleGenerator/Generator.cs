@@ -1,16 +1,8 @@
 using CefSharp;
-using CefSharp.Web;
 using CefSharp.OffScreen;
 using StreamScheduleGenerator.Generation;
 using System.Diagnostics;
 using System.Globalization;
-using System.Windows.Forms;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.Storage.Pickers.Provider;
-using WinRT.Interop;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.IO;
 
 namespace StreamScheduleGenerator
 {
@@ -278,8 +270,17 @@ namespace StreamScheduleGenerator
         {
             if (e.Frame.IsMain)
             {
+                webBrowser.FrameLoadEnd -= WebBrowser_FrameLoadEnd;
+
                 var data = await webBrowser.CaptureScreenshotAsync(CefSharp.DevTools.Page.CaptureScreenshotFormat.Jpeg, 100);
                 File.WriteAllBytes(webBrowserScreenSavePath, data);
+
+                Invoke((MethodInvoker)delegate ()
+                {
+                    ShowAllGenerationParameters();
+                    webBrowser.LoadHtml("", "http://schedule", System.Text.Encoding.UTF8);
+                });
+
                 DialogResult IsFileNeedsToBeOpen = MessageBox.Show("Le planning est disponible dans le fichier suivant :" + Environment.NewLine + webBrowserScreenSavePath, "Planning généré", MessageBoxButtons.YesNo);
 
                 if (IsFileNeedsToBeOpen == DialogResult.Yes)
@@ -289,13 +290,12 @@ namespace StreamScheduleGenerator
                     fileopener.StartInfo.Arguments = "\"" + webBrowserScreenSavePath + "\"";
                     fileopener.Start();
                 }
-
-                Invoke((MethodInvoker)delegate ()
-                {
-                    //Cef.Shutdown();
-                    ShowAllGenerationParameters();
-                });
             }
+        }
+
+        private void Generator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Cef.Shutdown();
         }
     }
 }
