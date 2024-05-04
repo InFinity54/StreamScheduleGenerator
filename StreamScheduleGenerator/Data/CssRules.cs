@@ -159,6 +159,7 @@
             streamOnGenshinRules.Add("background-repeat", "no-repeat, no-repeat");
             streamOnGenshinRules.Add("background-position", "center center, center center");
             streamOnGenshinRules.Add("background-size", "65% auto, cover");
+            streamOnGenshinRules.Add("color", Properties.Settings.Default.scheduleColorDayOnContrast);
 
             casesRules.Add(".stream_off", streamOffRules);
             casesRules.Add(".stream_on", streamOnRules);
