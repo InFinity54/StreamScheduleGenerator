@@ -9,12 +9,37 @@ namespace StreamScheduleGenerator
             InitializeComponent();
             InitializeFontList();
 
+            Identity_StreamPlatform.SelectedIndex = Identity_StreamPlatform.FindString(Properties.Settings.Default.scheduleStreamPlatform);
+            Identity_ChannelName.Text = Properties.Settings.Default.scheduleChannelName;
             GraphicalElements_Font.SelectedIndex = GraphicalElements_Font.FindString(Properties.Settings.Default.scheduleFont);
             GraphicalElements_ImgBgPath.Text = Properties.Settings.Default.scheduleBackgroundImage;
             Colors_TitlesColor.Text = Properties.Settings.Default.scheduleColorTitles;
             Colors_OffDayColor.Text = Properties.Settings.Default.scheduleColorDayOff;
             Colors_OnDayColor.Text = Properties.Settings.Default.scheduleColorDayOn;
             Colors_OnDayContrastColor.Text = Properties.Settings.Default.scheduleColorDayOnConstrast;
+
+            if (Properties.Settings.Default.scheduleShowFullChannelLink)
+            {
+                Identity_ChannelFullLink_Yes.Checked = true;
+            }
+            else
+            {
+                Identity_ChannelFullLink_No.Checked = false;
+            }
+
+            switch (Properties.Settings.Default.scheduleStreamPlatformColor)
+            {
+                case "default":
+                default:
+                    Identity_StreamPlatformLogoColor.SelectedIndex = Identity_StreamPlatformLogoColor.FindString("Couleur par défaut");
+                    break;
+                case "light":
+                    Identity_StreamPlatformLogoColor.SelectedIndex = Identity_StreamPlatformLogoColor.FindString("Blanc");
+                    break;
+                case "dark":
+                    Identity_StreamPlatformLogoColor.SelectedIndex = Identity_StreamPlatformLogoColor.FindString("Noir");
+                    break;
+            }
         }
 
         private void InitializeFontList()
@@ -29,12 +54,37 @@ namespace StreamScheduleGenerator
 
         private void Footer_SaveAndClose_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.scheduleStreamPlatform = Identity_StreamPlatform.Text;
+            Properties.Settings.Default.scheduleChannelName = Identity_ChannelName.Text;
             Properties.Settings.Default.scheduleBackgroundImage = GraphicalElements_ImgBgPath.Text;
             Properties.Settings.Default.scheduleColorTitles = Colors_TitlesColor.Text;
             Properties.Settings.Default.scheduleColorDayOff = Colors_OffDayColor.Text;
             Properties.Settings.Default.scheduleColorDayOn = Colors_OnDayColor.Text;
             Properties.Settings.Default.scheduleColorDayOnConstrast = Colors_OnDayContrastColor.Text;
             Properties.Settings.Default.scheduleFont = GraphicalElements_Font.Text;
+
+            if (Identity_ChannelFullLink_Yes.Checked)
+            {
+                Properties.Settings.Default.scheduleShowFullChannelLink = true;
+            }
+            else
+            {
+                Properties.Settings.Default.scheduleShowFullChannelLink = false;
+            }
+
+            switch (Identity_StreamPlatformLogoColor.Text)
+            {
+                case "Couleur par défaut":
+                default:
+                    Properties.Settings.Default.scheduleStreamPlatformColor = "default";
+                    break;
+                case "Blanc":
+                    Properties.Settings.Default.scheduleStreamPlatformColor = "light";
+                    break;
+                case "Noir":
+                    Properties.Settings.Default.scheduleStreamPlatformColor = "dark";
+                    break;
+            }
 
             Properties.Settings.Default.Save();
             Close();

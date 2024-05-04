@@ -53,15 +53,26 @@
             Colors_TitlesColor = new TextBox();
             Colors_TitlesColorLabel = new Label();
             SettingsColorPicker = new ColorDialog();
+            groupBox1 = new GroupBox();
+            Identity_ChannelFullLink_No = new RadioButton();
+            Identity_ChannelFullLink_Yes = new RadioButton();
+            Identity_ChannelFullLinkLabel = new Label();
+            Identity_ChannelName = new TextBox();
+            Identity_ChannelNameLabel = new Label();
+            Identity_StreamPlatformLogoColor = new ComboBox();
+            Identity_StreamPlatformLogoColorLabel = new Label();
+            Identity_StreamPlatform = new ComboBox();
+            Identity_StreamPlatformLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)Header_Icon).BeginInit();
             GraphicalElements_Group.SuspendLayout();
             Colors_Group.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // Footer_SaveAndClose
             // 
             Footer_SaveAndClose.ForeColor = Color.Black;
-            Footer_SaveAndClose.Location = new Point(593, 273);
+            Footer_SaveAndClose.Location = new Point(593, 435);
             Footer_SaveAndClose.Name = "Footer_SaveAndClose";
             Footer_SaveAndClose.Size = new Size(179, 23);
             Footer_SaveAndClose.TabIndex = 0;
@@ -125,7 +136,7 @@
             GraphicalElements_Group.Controls.Add(GraphicalElements_ImgBgFind);
             GraphicalElements_Group.Controls.Add(GraphicalElements_ImgBgPath);
             GraphicalElements_Group.ForeColor = Color.White;
-            GraphicalElements_Group.Location = new Point(12, 73);
+            GraphicalElements_Group.Location = new Point(12, 236);
             GraphicalElements_Group.Name = "GraphicalElements_Group";
             GraphicalElements_Group.Size = new Size(760, 87);
             GraphicalElements_Group.TabIndex = 7;
@@ -169,7 +180,7 @@
             Colors_Group.Controls.Add(Colors_TitlesColor);
             Colors_Group.Controls.Add(Colors_TitlesColorLabel);
             Colors_Group.ForeColor = Color.White;
-            Colors_Group.Location = new Point(12, 166);
+            Colors_Group.Location = new Point(12, 329);
             Colors_Group.Name = "Colors_Group";
             Colors_Group.Size = new Size(760, 88);
             Colors_Group.TabIndex = 8;
@@ -288,12 +299,116 @@
             // 
             SettingsColorPicker.AnyColor = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(Identity_StreamPlatform);
+            groupBox1.Controls.Add(Identity_StreamPlatformLabel);
+            groupBox1.Controls.Add(Identity_StreamPlatformLogoColor);
+            groupBox1.Controls.Add(Identity_StreamPlatformLogoColorLabel);
+            groupBox1.Controls.Add(Identity_ChannelFullLink_No);
+            groupBox1.Controls.Add(Identity_ChannelFullLink_Yes);
+            groupBox1.Controls.Add(Identity_ChannelFullLinkLabel);
+            groupBox1.Controls.Add(Identity_ChannelName);
+            groupBox1.Controls.Add(Identity_ChannelNameLabel);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(12, 77);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(760, 153);
+            groupBox1.TabIndex = 9;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Identité";
+            // 
+            // Identity_ChannelFullLink_No
+            // 
+            Identity_ChannelFullLink_No.AutoSize = true;
+            Identity_ChannelFullLink_No.Location = new Point(372, 88);
+            Identity_ChannelFullLink_No.Name = "Identity_ChannelFullLink_No";
+            Identity_ChannelFullLink_No.Size = new Size(53, 21);
+            Identity_ChannelFullLink_No.TabIndex = 11;
+            Identity_ChannelFullLink_No.TabStop = true;
+            Identity_ChannelFullLink_No.Text = "Non";
+            Identity_ChannelFullLink_No.UseVisualStyleBackColor = true;
+            // 
+            // Identity_ChannelFullLink_Yes
+            // 
+            Identity_ChannelFullLink_Yes.AutoSize = true;
+            Identity_ChannelFullLink_Yes.Location = new Point(295, 88);
+            Identity_ChannelFullLink_Yes.Name = "Identity_ChannelFullLink_Yes";
+            Identity_ChannelFullLink_Yes.Size = new Size(48, 21);
+            Identity_ChannelFullLink_Yes.TabIndex = 10;
+            Identity_ChannelFullLink_Yes.TabStop = true;
+            Identity_ChannelFullLink_Yes.Text = "Oui";
+            Identity_ChannelFullLink_Yes.UseVisualStyleBackColor = true;
+            // 
+            // Identity_ChannelFullLinkLabel
+            // 
+            Identity_ChannelFullLinkLabel.AutoSize = true;
+            Identity_ChannelFullLinkLabel.Location = new Point(6, 90);
+            Identity_ChannelFullLinkLabel.Name = "Identity_ChannelFullLinkLabel";
+            Identity_ChannelFullLinkLabel.Size = new Size(261, 17);
+            Identity_ChannelFullLinkLabel.TabIndex = 9;
+            Identity_ChannelFullLinkLabel.Text = "Afficher le lien complet vers la chaîne ?";
+            // 
+            // Identity_ChannelName
+            // 
+            Identity_ChannelName.Location = new Point(75, 56);
+            Identity_ChannelName.Name = "Identity_ChannelName";
+            Identity_ChannelName.Size = new Size(679, 23);
+            Identity_ChannelName.TabIndex = 8;
+            // 
+            // Identity_ChannelNameLabel
+            // 
+            Identity_ChannelNameLabel.AutoSize = true;
+            Identity_ChannelNameLabel.Location = new Point(6, 59);
+            Identity_ChannelNameLabel.Name = "Identity_ChannelNameLabel";
+            Identity_ChannelNameLabel.Size = new Size(63, 17);
+            Identity_ChannelNameLabel.TabIndex = 7;
+            Identity_ChannelNameLabel.Text = "Chaîne :";
+            // 
+            // Identity_StreamPlatformLogoColor
+            // 
+            Identity_StreamPlatformLogoColor.FormattingEnabled = true;
+            Identity_StreamPlatformLogoColor.Items.AddRange(new object[] { "Couleur par défaut", "Blanc", "Noir" });
+            Identity_StreamPlatformLogoColor.Location = new Point(134, 118);
+            Identity_StreamPlatformLogoColor.Name = "Identity_StreamPlatformLogoColor";
+            Identity_StreamPlatformLogoColor.Size = new Size(620, 25);
+            Identity_StreamPlatformLogoColor.TabIndex = 13;
+            // 
+            // Identity_StreamPlatformLogoColorLabel
+            // 
+            Identity_StreamPlatformLogoColorLabel.AutoSize = true;
+            Identity_StreamPlatformLogoColorLabel.Location = new Point(6, 121);
+            Identity_StreamPlatformLogoColorLabel.Name = "Identity_StreamPlatformLogoColorLabel";
+            Identity_StreamPlatformLogoColorLabel.Size = new Size(122, 17);
+            Identity_StreamPlatformLogoColorLabel.TabIndex = 12;
+            Identity_StreamPlatformLogoColorLabel.Text = "Couleur du logo :";
+            // 
+            // Identity_StreamPlatform
+            // 
+            Identity_StreamPlatform.FormattingEnabled = true;
+            Identity_StreamPlatform.Items.AddRange(new object[] { "Twitch" });
+            Identity_StreamPlatform.Location = new Point(168, 22);
+            Identity_StreamPlatform.Name = "Identity_StreamPlatform";
+            Identity_StreamPlatform.Size = new Size(586, 25);
+            Identity_StreamPlatform.Sorted = true;
+            Identity_StreamPlatform.TabIndex = 15;
+            // 
+            // Identity_StreamPlatformLabel
+            // 
+            Identity_StreamPlatformLabel.AutoSize = true;
+            Identity_StreamPlatformLabel.Location = new Point(6, 25);
+            Identity_StreamPlatformLabel.Name = "Identity_StreamPlatformLabel";
+            Identity_StreamPlatformLabel.Size = new Size(156, 17);
+            Identity_StreamPlatformLabel.TabIndex = 14;
+            Identity_StreamPlatformLabel.Text = "Plateforme de stream :";
+            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(33, 33, 33);
-            ClientSize = new Size(784, 308);
+            ClientSize = new Size(784, 470);
+            Controls.Add(groupBox1);
             Controls.Add(Colors_Group);
             Controls.Add(GraphicalElements_Group);
             Controls.Add(Header_Title);
@@ -312,6 +427,8 @@
             GraphicalElements_Group.PerformLayout();
             Colors_Group.ResumeLayout(false);
             Colors_Group.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -341,5 +458,15 @@
         private Label Colors_OnDayContrastColorLabel;
         private ComboBox GraphicalElements_Font;
         private Label GraphicalElements_FontLabel;
+        private GroupBox groupBox1;
+        private Label Identity_ChannelNameLabel;
+        private RadioButton Identity_ChannelFullLink_No;
+        private RadioButton Identity_ChannelFullLink_Yes;
+        private Label Identity_ChannelFullLinkLabel;
+        private TextBox Identity_ChannelName;
+        private ComboBox Identity_StreamPlatformLogoColor;
+        private Label Identity_StreamPlatformLogoColorLabel;
+        private ComboBox Identity_StreamPlatform;
+        private Label Identity_StreamPlatformLabel;
     }
 }

@@ -6,7 +6,7 @@ namespace StreamScheduleGenerator.Generation
     {
         public static string GenerateCssCode()
         {
-            return GenerateGlobalCss() + " " + GenerateTableCss() + " " + GenerateCasesCss();
+            return GenerateGlobalCss() + " " + GenerateTableCss() + " " + GenerateCasesCss() + " " + GenerateChannelLinkCss();
         }
 
         private static string GenerateGlobalCss()
@@ -52,6 +52,25 @@ namespace StreamScheduleGenerator.Generation
             string cssCases = "";
 
             foreach (KeyValuePair<string, Dictionary<string, string>> element in CssRules.GetCssCasesRules())
+            {
+                cssCases += element.Key + " { ";
+
+                foreach (KeyValuePair<string, string> rule in element.Value)
+                {
+                    cssCases += rule.Key + ": " + rule.Value + ";";
+                }
+
+                cssCases += " } ";
+            }
+
+            return cssCases;
+        }
+
+        private static string GenerateChannelLinkCss()
+        {
+            string cssCases = "";
+
+            foreach (KeyValuePair<string, Dictionary<string, string>> element in CssRules.GetCssChannelLinkRules())
             {
                 cssCases += element.Key + " { ";
 

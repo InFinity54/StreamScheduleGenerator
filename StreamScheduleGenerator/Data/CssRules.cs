@@ -2,6 +2,8 @@
 {
     public class CssRules
     {
+        public static string imagesFolderPath = (Environment.CurrentDirectory + "\\Images\\").Replace("\\", "/");
+
         public static Dictionary<string, Dictionary<string, string>> GetCssGlobalRules()
         {
             Dictionary<string, Dictionary<string, string>> globalRules = new Dictionary<string, Dictionary<string, string>>();
@@ -115,7 +117,6 @@
 
         public static Dictionary<string, Dictionary<string, string>> GetCssCasesRules()
         {
-            string imagesFolderPath = (Environment.CurrentDirectory + "\\Images\\").Replace("\\", "/");
             Dictionary<string, Dictionary<string, string>> casesRules = new Dictionary<string, Dictionary<string, string>>();
 
             Dictionary<string, string> streamOffRules = new Dictionary<string, string>();
@@ -166,6 +167,51 @@
             casesRules.Add(".stream_on.stream_hunt", streamOnHuntRules);
             casesRules.Add(".stream_on.stream_genshin", streamOnGenshinRules);
             return casesRules;
+        }
+
+        public static Dictionary<string, Dictionary<string, string>> GetCssChannelLinkRules()
+        {
+            Dictionary<string, Dictionary<string, string>> channelLinkRules = new Dictionary<string, Dictionary<string, string>>();
+
+            Dictionary<string, string> channelLinkContainerRules = new Dictionary<string, string>();
+            channelLinkContainerRules.Add("position", "absolute");
+            channelLinkContainerRules.Add("top", "40px");
+            channelLinkContainerRules.Add("right", "40px");
+
+            Dictionary<string, string> channelPlatformRules = new Dictionary<string, string>();
+            channelPlatformRules.Add("display", "inline-block");
+            channelPlatformRules.Add("width", "50px");
+            channelPlatformRules.Add("height", "50px");
+            channelPlatformRules.Add("vertical-align", "middle");
+
+            Dictionary<string, string> channelLinkTextRules = new Dictionary<string, string>();
+            channelLinkTextRules.Add("display", "inline-block");
+            channelLinkTextRules.Add("margin-left", "10px");
+            channelLinkTextRules.Add("vertical-align", "middle");
+            channelLinkTextRules.Add("font-weight", "bold");
+            channelLinkTextRules.Add("font-size", "30px");
+
+            channelLinkRules.Add("#channel_link", channelLinkContainerRules);
+            channelLinkRules.Add("#channel_platform", channelPlatformRules);
+            channelLinkRules.Add("#channel_link_text", channelLinkTextRules);
+
+            if (Properties.Settings.Default.scheduleStreamPlatform == "Twitch")
+            {
+                Dictionary<string, string> channelPlatformTwitchDefaultRules = new Dictionary<string, string>();
+                channelPlatformTwitchDefaultRules.Add("color", "#8205B4");
+
+                Dictionary<string, string> channelPlatformTwitchLightRules = new Dictionary<string, string>();
+                channelPlatformTwitchLightRules.Add("color", "#FFFFFF");
+
+                Dictionary<string, string> channelPlatformTwitchDarkRules = new Dictionary<string, string>();
+                channelPlatformTwitchDarkRules.Add("color", "#000000");
+
+                channelLinkRules.Add("#channel_link.platform_twitch.default", channelPlatformTwitchDefaultRules);
+                channelLinkRules.Add("#channel_link.platform_twitch.light", channelPlatformTwitchLightRules);
+                channelLinkRules.Add("#channel_link.platform_twitch.dark", channelPlatformTwitchDarkRules);
+            }
+
+            return channelLinkRules;
         }
     }
 }

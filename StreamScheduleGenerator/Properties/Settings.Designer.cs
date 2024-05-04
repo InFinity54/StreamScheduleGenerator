@@ -94,5 +94,53 @@ namespace StreamScheduleGenerator.Properties {
                 this["scheduleFont"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string scheduleChannelName {
+            get {
+                return ((string)(this["scheduleChannelName"]));
+            }
+            set {
+                this["scheduleChannelName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool scheduleShowFullChannelLink {
+            get {
+                return ((bool)(this["scheduleShowFullChannelLink"]));
+            }
+            set {
+                this["scheduleShowFullChannelLink"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Twitch")]
+        public string scheduleStreamPlatform {
+            get {
+                return ((string)(this["scheduleStreamPlatform"]));
+            }
+            set {
+                this["scheduleStreamPlatform"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string scheduleStreamPlatformColor {
+            get {
+                return ((string)(this["scheduleStreamPlatformColor"]));
+            }
+            set {
+                this["scheduleStreamPlatformColor"] = value;
+            }
+        }
     }
 }

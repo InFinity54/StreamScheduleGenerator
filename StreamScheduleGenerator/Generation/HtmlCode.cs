@@ -8,7 +8,6 @@
 
             // Head
             html += "<head>";
-            html += "<title>Planning de stream</title>";
             html += "<meta charset='" + charset + "' />";
             html += "<style>" + CssCode.GenerateCssCode() + "</style>";
             html += "</head>";
@@ -17,6 +16,7 @@
             html += "<body>";
             html += "<div id='content'>";
             html += "<div id='planning_title'>PLANNING - " + scheduleMonth.ToUpper() + " " + scheduleYear + "</div>";
+            html += GenerateChannelLinkCode();
             html += "<div id='planning_table'>";
             html += GenerateTableFirstLine();
 
@@ -30,6 +30,34 @@
             html += "</body>";
 
             return html;
+        }
+
+        private static string GenerateChannelLinkCode()
+        {
+            string streamPlatformIconFilename = Environment.CurrentDirectory + "\\Images\\platform_";
+            streamPlatformIconFilename += Properties.Settings.Default.scheduleStreamPlatform.ToLower() + "_";
+            streamPlatformIconFilename += Properties.Settings.Default.scheduleStreamPlatformColor + ".png";
+
+            string channelLink = "<div id='channel_link' class='platform_";
+            channelLink += Properties.Settings.Default.scheduleStreamPlatform.ToLower() + " " + Properties.Settings.Default.scheduleStreamPlatformColor + "'>";
+            channelLink += "<img id='channel_platform' src='" + FileUtilities.FileConverter.FileToBase64(streamPlatformIconFilename) + "' />";
+            channelLink += "<div id='channel_link_text'>";
+
+            if (Properties.Settings.Default.scheduleShowFullChannelLink)
+            {
+                switch (Properties.Settings.Default.scheduleStreamPlatform)
+                {
+                    case "Twitch":
+                        channelLink += "twitch.tv/";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            channelLink += Properties.Settings.Default.scheduleChannelName + "</div>";
+            channelLink += "</div>";
+            return channelLink;
         }
 
         private static string GenerateTableFirstLine()
