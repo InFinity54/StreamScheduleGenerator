@@ -61,7 +61,53 @@ namespace StreamScheduleGenerator
             WeeksSettings_Tabs.TabPages.Add(tabPage);
         }
 
-        private async void Footer_GenerationStart_Click(object sender, EventArgs e)
+        private void Footer_GenerationStart_Click(object sender, EventArgs e)
+        {
+            if (
+                Properties.Settings.Default.scheduleBackgroundImage == "" || Properties.Settings.Default.scheduleColorTitles == "" |
+                Properties.Settings.Default.scheduleColorDayOff == "" || Properties.Settings.Default.scheduleColorDayOn == "" ||
+                Properties.Settings.Default.scheduleColorDayOnContrast == "" || Properties.Settings.Default.scheduleFont == "" ||
+                Properties.Settings.Default.scheduleChannelName == "" || Properties.Settings.Default.scheduleStreamPlatform == "" ||
+                Properties.Settings.Default.scheduleStreamPlatformColor == ""
+            )
+            {
+                MessageBox.Show("La configuration du générateur est incomplète. Elle doit être complétée avant la génération.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Header_Settings.PerformClick();
+            }
+            else if (WeeksSettings_Tabs.TabCount == 0)
+            {
+                MessageBox.Show("Vous devez ajouter au moins une semaine dans le planning pour pouvoir le générer.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                HideAllGenerationParameters();
+                HandlePlanningGeneration();
+            }
+        }
+
+        private void HideAllGenerationParameters()
+        {
+            Header_Settings.Enabled = false;
+            PlanningMonthSelection_Month.Enabled = false;
+            PlanningMonthSelection_Year.Enabled = false;
+            Footer_NewWeek.Enabled = false;
+            Footer_GenerationStart.Enabled = false;
+            WeeksSettings_Tabs.Visible = false;
+            GeneratingIndicator.Visible = true;
+        }
+
+        private void ShowAllGenerationParameters()
+        {
+            Header_Settings.Enabled = true;
+            PlanningMonthSelection_Month.Enabled = true;
+            PlanningMonthSelection_Year.Enabled = true;
+            Footer_NewWeek.Enabled = true;
+            Footer_GenerationStart.Enabled = true;
+            WeeksSettings_Tabs.Visible = true;
+            GeneratingIndicator.Visible = false;
+        }
+
+        private void HandlePlanningGeneration()
         {
             List<Week> weeks = new List<Week>();
 
@@ -70,9 +116,9 @@ namespace StreamScheduleGenerator
                 DateTime weekStart = DateTime.ParseExact(tab.Controls.Find("WeekDates_Start", true)[0].Text, "d", CultureInfo.CurrentCulture);
                 DateTime weekEnd = DateTime.ParseExact(tab.Controls.Find("WeekDates_End", true)[0].Text, "d", CultureInfo.CurrentCulture);
 
-                bool mondayDayOff = ((CheckBox) tab.Controls.Find("MondaySettings_IsDayOff", true)[0]).Checked;
+                bool mondayDayOff = ((CheckBox)tab.Controls.Find("MondaySettings_IsDayOff", true)[0]).Checked;
                 DateTime? mondayStreamStart = !mondayDayOff ? DateTime.ParseExact(tab.Controls.Find("MondaySettings_StreamStartHour", true)[0].Text, "t", CultureInfo.CurrentCulture) : null;
-                bool? mondayHasMultipleGames = !mondayDayOff ? ((CheckBox) tab.Controls.Find("MondaySettings_HasMultipleGames", true)[0]).Checked : null;
+                bool? mondayHasMultipleGames = !mondayDayOff ? ((CheckBox)tab.Controls.Find("MondaySettings_HasMultipleGames", true)[0]).Checked : null;
                 List<string> mondayGames;
 
                 if (!mondayDayOff && ((ListBox)tab.Controls.Find("MondaySettings_Games", true)[0]).SelectionMode == SelectionMode.MultiExtended)
@@ -89,9 +135,9 @@ namespace StreamScheduleGenerator
                     mondayGames = new List<string>();
                 }
 
-                bool tuesdayDayOff = ((CheckBox) tab.Controls.Find("TuesdaySettings_IsDayOff", true)[0]).Checked;
+                bool tuesdayDayOff = ((CheckBox)tab.Controls.Find("TuesdaySettings_IsDayOff", true)[0]).Checked;
                 DateTime? tuesdayStreamStart = !tuesdayDayOff ? DateTime.ParseExact(tab.Controls.Find("TuesdaySettings_StreamStartHour", true)[0].Text, "t", CultureInfo.CurrentCulture) : null;
-                bool? tuesdayHasMultipleGames = !tuesdayDayOff ? ((CheckBox) tab.Controls.Find("TuesdaySettings_HasMultipleGames", true)[0]).Checked : null;
+                bool? tuesdayHasMultipleGames = !tuesdayDayOff ? ((CheckBox)tab.Controls.Find("TuesdaySettings_HasMultipleGames", true)[0]).Checked : null;
                 List<string> tuesdayGames;
 
                 if (!tuesdayDayOff && ((ListBox)tab.Controls.Find("TuesdaySettings_Games", true)[0]).SelectionMode == SelectionMode.MultiExtended)
@@ -108,9 +154,9 @@ namespace StreamScheduleGenerator
                     tuesdayGames = new List<string>();
                 }
 
-                bool wednesdayDayOff = ((CheckBox) tab.Controls.Find("WednesdaySettings_IsDayOff", true)[0]).Checked;
+                bool wednesdayDayOff = ((CheckBox)tab.Controls.Find("WednesdaySettings_IsDayOff", true)[0]).Checked;
                 DateTime? wednesdayStreamStart = !wednesdayDayOff ? DateTime.ParseExact(tab.Controls.Find("WednesdaySettings_StreamStartHour", true)[0].Text, "t", CultureInfo.CurrentCulture) : null;
-                bool? wednesdayHasMultipleGames = !wednesdayDayOff ? ((CheckBox) tab.Controls.Find("WednesdaySettings_HasMultipleGames", true)[0]).Checked : null;
+                bool? wednesdayHasMultipleGames = !wednesdayDayOff ? ((CheckBox)tab.Controls.Find("WednesdaySettings_HasMultipleGames", true)[0]).Checked : null;
                 List<string> wednesdayGames;
 
                 if (!wednesdayDayOff && ((ListBox)tab.Controls.Find("WednesdaySettings_Games", true)[0]).SelectionMode == SelectionMode.MultiExtended)
@@ -127,9 +173,9 @@ namespace StreamScheduleGenerator
                     wednesdayGames = new List<string>();
                 }
 
-                bool thursdayDayOff = ((CheckBox) tab.Controls.Find("ThursdaySettings_IsDayOff", true)[0]).Checked;
+                bool thursdayDayOff = ((CheckBox)tab.Controls.Find("ThursdaySettings_IsDayOff", true)[0]).Checked;
                 DateTime? thursdayStreamStart = !thursdayDayOff ? DateTime.ParseExact(tab.Controls.Find("ThursdaySettings_StreamStartHour", true)[0].Text, "t", CultureInfo.CurrentCulture) : null;
-                bool? thursdayHasMultipleGames = !thursdayDayOff ? ((CheckBox) tab.Controls.Find("ThursdaySettings_HasMultipleGames", true)[0]).Checked : null;
+                bool? thursdayHasMultipleGames = !thursdayDayOff ? ((CheckBox)tab.Controls.Find("ThursdaySettings_HasMultipleGames", true)[0]).Checked : null;
                 List<string> thursdayGames;
 
                 if (!thursdayDayOff && ((ListBox)tab.Controls.Find("ThursdaySettings_Games", true)[0]).SelectionMode == SelectionMode.MultiExtended)
@@ -146,9 +192,9 @@ namespace StreamScheduleGenerator
                     thursdayGames = new List<string>();
                 }
 
-                bool fridayDayOff = ((CheckBox) tab.Controls.Find("FridaySettings_IsDayOff", true)[0]).Checked;
+                bool fridayDayOff = ((CheckBox)tab.Controls.Find("FridaySettings_IsDayOff", true)[0]).Checked;
                 DateTime? fridayStreamStart = !fridayDayOff ? DateTime.ParseExact(tab.Controls.Find("FridaySettings_StreamStartHour", true)[0].Text, "t", CultureInfo.CurrentCulture) : null;
-                bool? fridayHasMultipleGames = !fridayDayOff ? ((CheckBox) tab.Controls.Find("FridaySettings_HasMultipleGames", true)[0]).Checked : null;
+                bool? fridayHasMultipleGames = !fridayDayOff ? ((CheckBox)tab.Controls.Find("FridaySettings_HasMultipleGames", true)[0]).Checked : null;
                 List<string> fridayGames;
 
                 if (!fridayDayOff && ((ListBox)tab.Controls.Find("FridaySettings_Games", true)[0]).SelectionMode == SelectionMode.MultiExtended)
@@ -165,9 +211,9 @@ namespace StreamScheduleGenerator
                     fridayGames = new List<string>();
                 }
 
-                bool saturdayDayOff = ((CheckBox) tab.Controls.Find("SaturdaySettings_IsDayOff", true)[0]).Checked;
+                bool saturdayDayOff = ((CheckBox)tab.Controls.Find("SaturdaySettings_IsDayOff", true)[0]).Checked;
                 DateTime? saturdayStreamStart = !saturdayDayOff ? DateTime.ParseExact(tab.Controls.Find("SaturdaySettings_StreamStartHour", true)[0].Text, "t", CultureInfo.CurrentCulture) : null;
-                bool? saturdayHasMultipleGames = !saturdayDayOff ? ((CheckBox) tab.Controls.Find("SaturdaySettings_HasMultipleGames", true)[0]).Checked : null;
+                bool? saturdayHasMultipleGames = !saturdayDayOff ? ((CheckBox)tab.Controls.Find("SaturdaySettings_HasMultipleGames", true)[0]).Checked : null;
                 List<string> saturdayGames;
 
                 if (!saturdayDayOff && ((ListBox)tab.Controls.Find("SaturdaySettings_Games", true)[0]).SelectionMode == SelectionMode.MultiExtended)
@@ -184,9 +230,9 @@ namespace StreamScheduleGenerator
                     saturdayGames = new List<string>();
                 }
 
-                bool sundayDayOff = ((CheckBox) tab.Controls.Find("SundaySettings_IsDayOff", true)[0]).Checked;
+                bool sundayDayOff = ((CheckBox)tab.Controls.Find("SundaySettings_IsDayOff", true)[0]).Checked;
                 DateTime? sundayStreamStart = !sundayDayOff ? DateTime.ParseExact(tab.Controls.Find("SundaySettings_StreamStartHour", true)[0].Text, "t", CultureInfo.CurrentCulture) : null;
-                bool? sundayHasMultipleGames = !sundayDayOff ? ((CheckBox) tab.Controls.Find("SundaySettings_HasMultipleGames", true)[0]).Checked : null;
+                bool? sundayHasMultipleGames = !sundayDayOff ? ((CheckBox)tab.Controls.Find("SundaySettings_HasMultipleGames", true)[0]).Checked : null;
                 List<string> sundayGames;
 
                 if (!sundayDayOff && ((ListBox)tab.Controls.Find("SundaySettings_Games", true)[0]).SelectionMode == SelectionMode.MultiExtended)
@@ -226,7 +272,6 @@ namespace StreamScheduleGenerator
             webBrowser.FrameLoadEnd += WebBrowser_FrameLoadEnd;
 
             webBrowser.LoadHtml(html, "http://schedule", System.Text.Encoding.UTF8);
-            //Cef.Shutdown();
         }
 
         private async void WebBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
@@ -244,6 +289,12 @@ namespace StreamScheduleGenerator
                     fileopener.StartInfo.Arguments = "\"" + webBrowserScreenSavePath + "\"";
                     fileopener.Start();
                 }
+
+                Invoke((MethodInvoker)delegate ()
+                {
+                    //Cef.Shutdown();
+                    ShowAllGenerationParameters();
+                });
             }
         }
     }

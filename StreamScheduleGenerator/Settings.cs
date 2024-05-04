@@ -16,7 +16,7 @@ namespace StreamScheduleGenerator
             Colors_TitlesColor.Text = Properties.Settings.Default.scheduleColorTitles;
             Colors_OffDayColor.Text = Properties.Settings.Default.scheduleColorDayOff;
             Colors_OnDayColor.Text = Properties.Settings.Default.scheduleColorDayOn;
-            Colors_OnDayContrastColor.Text = Properties.Settings.Default.scheduleColorDayOnConstrast;
+            Colors_OnDayContrastColor.Text = Properties.Settings.Default.scheduleColorDayOnContrast;
 
             if (Properties.Settings.Default.scheduleShowFullChannelLink)
             {
@@ -60,7 +60,7 @@ namespace StreamScheduleGenerator
             Properties.Settings.Default.scheduleColorTitles = Colors_TitlesColor.Text;
             Properties.Settings.Default.scheduleColorDayOff = Colors_OffDayColor.Text;
             Properties.Settings.Default.scheduleColorDayOn = Colors_OnDayColor.Text;
-            Properties.Settings.Default.scheduleColorDayOnConstrast = Colors_OnDayContrastColor.Text;
+            Properties.Settings.Default.scheduleColorDayOnContrast = Colors_OnDayContrastColor.Text;
             Properties.Settings.Default.scheduleFont = GraphicalElements_Font.Text;
 
             if (Identity_ChannelFullLink_Yes.Checked)

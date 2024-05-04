@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <None Remove="app.manifest" />
+    <None Remove="Properties\0mvtpvmv.o2u~" />
   </ItemGroup>
 
   <ItemGroup>

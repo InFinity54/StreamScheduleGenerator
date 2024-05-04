@@ -39,6 +39,7 @@
             Footer_NewWeek = new Button();
             Footer_GenerationStart = new Button();
             GeneratedScheduleSaveDialog = new SaveFileDialog();
+            GeneratingIndicator = new Label();
             ((System.ComponentModel.ISupportInitialize)Header_Icon).BeginInit();
             SuspendLayout();
             // 
@@ -136,6 +137,15 @@
             GeneratedScheduleSaveDialog.Filter = "Image JPG|*.jpg";
             GeneratedScheduleSaveDialog.Title = "Où enregistrer le planning de stream généré ?";
             // 
+            // GeneratingIndicator
+            // 
+            GeneratingIndicator.Image = Properties.Resources.app_generatingindicator;
+            GeneratingIndicator.Location = new Point(12, 68);
+            GeneratingIndicator.Name = "GeneratingIndicator";
+            GeneratingIndicator.Size = new Size(1043, 470);
+            GeneratingIndicator.TabIndex = 9;
+            GeneratingIndicator.Visible = false;
+            // 
             // Generator
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -150,6 +160,7 @@
             Controls.Add(Header_Settings);
             Controls.Add(Header_Title);
             Controls.Add(Header_Icon);
+            Controls.Add(GeneratingIndicator);
             Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -174,5 +185,6 @@
         private Button Footer_NewWeek;
         private Button Footer_GenerationStart;
         private SaveFileDialog GeneratedScheduleSaveDialog;
+        private Label GeneratingIndicator;
     }
 }

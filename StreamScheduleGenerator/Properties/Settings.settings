@@ -14,7 +14,7 @@
     <Setting Name="scheduleColorDayOn" Type="System.String" Scope="User">
       <Value Profile="(Default)">#FFFFFF</Value>
     </Setting>
-    <Setting Name="scheduleColorDayOnConstrast" Type="System.String" Scope="User">
+    <Setting Name="scheduleColorDayOnContrast" Type="System.String" Scope="User">
       <Value Profile="(Default)">#000000</Value>
     </Setting>
     <Setting Name="scheduleFont" Type="System.String" Scope="User">

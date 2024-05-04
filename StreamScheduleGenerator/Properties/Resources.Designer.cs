@@ -63,6 +63,16 @@ namespace StreamScheduleGenerator.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap app_generatingindicator {
+            get {
+                object obj = ResourceManager.GetObject("app_generatingindicator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap app_header_settingsbuttonicon {
             get {
                 object obj = ResourceManager.GetObject("app_header_settingsbuttonicon", resourceCulture);

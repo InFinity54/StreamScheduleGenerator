@@ -74,12 +74,12 @@ namespace StreamScheduleGenerator.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string scheduleColorDayOnConstrast {
+        public string scheduleColorDayOnContrast {
             get {
-                return ((string)(this["scheduleColorDayOnConstrast"]));
+                return ((string)(this["scheduleColorDayOnContrast"]));
             }
             set {
-                this["scheduleColorDayOnConstrast"] = value;
+                this["scheduleColorDayOnContrast"] = value;
             }
         }
         
