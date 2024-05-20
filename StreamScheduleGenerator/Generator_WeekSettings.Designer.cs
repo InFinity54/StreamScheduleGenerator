@@ -132,7 +132,6 @@
             // 
             MondaySettings_Games.FormattingEnabled = true;
             MondaySettings_Games.ItemHeight = 17;
-            MondaySettings_Games.Items.AddRange(new object[] { "Genshin Impact", "Hunt : Showdown", "League of Legends", "Valorant" });
             MondaySettings_Games.Location = new Point(278, 17);
             MondaySettings_Games.Name = "MondaySettings_Games";
             MondaySettings_Games.Size = new Size(215, 55);
@@ -207,7 +206,6 @@
             // 
             TuesdaySettings_Games.FormattingEnabled = true;
             TuesdaySettings_Games.ItemHeight = 17;
-            TuesdaySettings_Games.Items.AddRange(new object[] { "Genshin Impact", "Hunt : Showdown", "League of Legends", "Valorant" });
             TuesdaySettings_Games.Location = new Point(278, 17);
             TuesdaySettings_Games.Name = "TuesdaySettings_Games";
             TuesdaySettings_Games.Size = new Size(215, 55);
@@ -302,7 +300,6 @@
             // 
             ThursdaySettings_Games.FormattingEnabled = true;
             ThursdaySettings_Games.ItemHeight = 17;
-            ThursdaySettings_Games.Items.AddRange(new object[] { "Genshin Impact", "Hunt : Showdown", "League of Legends", "Valorant" });
             ThursdaySettings_Games.Location = new Point(278, 17);
             ThursdaySettings_Games.Name = "ThursdaySettings_Games";
             ThursdaySettings_Games.Size = new Size(215, 55);
@@ -387,7 +384,6 @@
             // 
             WednesdaySettings_Games.FormattingEnabled = true;
             WednesdaySettings_Games.ItemHeight = 17;
-            WednesdaySettings_Games.Items.AddRange(new object[] { "Genshin Impact", "Hunt : Showdown", "League of Legends", "Valorant" });
             WednesdaySettings_Games.Location = new Point(278, 17);
             WednesdaySettings_Games.Name = "WednesdaySettings_Games";
             WednesdaySettings_Games.Size = new Size(215, 55);
@@ -472,7 +468,6 @@
             // 
             SaturdaySettings_Games.FormattingEnabled = true;
             SaturdaySettings_Games.ItemHeight = 17;
-            SaturdaySettings_Games.Items.AddRange(new object[] { "Genshin Impact", "Hunt : Showdown", "League of Legends", "Valorant" });
             SaturdaySettings_Games.Location = new Point(278, 18);
             SaturdaySettings_Games.Name = "SaturdaySettings_Games";
             SaturdaySettings_Games.Size = new Size(215, 55);
@@ -557,7 +552,6 @@
             // 
             FridaySettings_Games.FormattingEnabled = true;
             FridaySettings_Games.ItemHeight = 17;
-            FridaySettings_Games.Items.AddRange(new object[] { "Genshin Impact", "Hunt : Showdown", "League of Legends", "Valorant" });
             FridaySettings_Games.Location = new Point(278, 17);
             FridaySettings_Games.Name = "FridaySettings_Games";
             FridaySettings_Games.Size = new Size(215, 55);
@@ -642,7 +636,6 @@
             // 
             SundaySettings_Games.FormattingEnabled = true;
             SundaySettings_Games.ItemHeight = 17;
-            SundaySettings_Games.Items.AddRange(new object[] { "Genshin Impact", "Hunt : Showdown", "League of Legends", "Valorant" });
             SundaySettings_Games.Location = new Point(278, 17);
             SundaySettings_Games.Name = "SundaySettings_Games";
             SundaySettings_Games.Size = new Size(215, 55);

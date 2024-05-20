@@ -5,6 +5,22 @@
         public Generator_WeekSettings()
         {
             InitializeComponent();
+
+            SetGamesCollection(MondaySettings_Games);
+            SetGamesCollection(TuesdaySettings_Games);
+            SetGamesCollection(WednesdaySettings_Games);
+            SetGamesCollection(ThursdaySettings_Games);
+            SetGamesCollection(FridaySettings_Games);
+            SetGamesCollection(SaturdaySettings_Games);
+            SetGamesCollection(SundaySettings_Games);
+        }
+
+        private void SetGamesCollection(ListBox destination)
+        {
+            destination.Items.Add("Genshin Impact");
+            destination.Items.Add("Hunt: Showdown");
+            destination.Items.Add("League of Legends");
+            destination.Items.Add("Valorant");
         }
 
         private void MondaySettings_IsDayOff_CheckedChanged(object sender, EventArgs e)
