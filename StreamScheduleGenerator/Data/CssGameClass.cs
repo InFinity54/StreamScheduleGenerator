@@ -14,6 +14,8 @@
                     return "stream_hunt";
                 case "Valorant":
                     return "stream_valo";
+                case "Wakfu":
+                    return "stream_wakfu";
                 default:
                     return "";
             }

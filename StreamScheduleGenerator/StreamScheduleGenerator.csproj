@@ -75,6 +75,12 @@
     <None Update="Images\game_valorant_wallpaper.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images\game_wakfu_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\game_wakfu_wallpaper.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\platform_twitch_black.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

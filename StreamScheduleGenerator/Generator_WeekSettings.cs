@@ -21,6 +21,7 @@
             destination.Items.Add("Hunt: Showdown");
             destination.Items.Add("League of Legends");
             destination.Items.Add("Valorant");
+            destination.Items.Add("Wakfu");
         }
 
         private void MondaySettings_IsDayOff_CheckedChanged(object sender, EventArgs e)

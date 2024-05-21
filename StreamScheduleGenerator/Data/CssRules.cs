@@ -161,12 +161,22 @@
             streamOnGenshinRules.Add("background-size", "65% auto, cover");
             streamOnGenshinRules.Add("color", Properties.Settings.Default.scheduleColorDayOnContrast);
 
+            Dictionary<string, string> streamOnWakfuRules = new Dictionary<string, string>();
+            streamOnWakfuRules.Add("padding-top", "125px");
+            streamOnWakfuRules.Add("background-image", "url('" + FileUtilities.FileConverter.FileToBase64(imagesFolderPath + "game_wakfu_logo.png") + "'), url('" + FileUtilities.FileConverter.FileToBase64(imagesFolderPath + "game_wakfu_wallpaper.jpg") + "')");
+            streamOnWakfuRules.Add("background-attachment", "fixed, fixed");
+            streamOnWakfuRules.Add("background-repeat", "no-repeat, no-repeat");
+            streamOnWakfuRules.Add("background-position", "center center, center center");
+            streamOnWakfuRules.Add("background-size", "65% auto, cover");
+            streamOnWakfuRules.Add("color", Properties.Settings.Default.scheduleColorDayOnContrast);
+
             casesRules.Add(".stream_off", streamOffRules);
             casesRules.Add(".stream_on", streamOnRules);
             casesRules.Add(".stream_on.stream_lol", streamOnLoLRules);
             casesRules.Add(".stream_on.stream_valo", streamOnValoRules);
             casesRules.Add(".stream_on.stream_hunt", streamOnHuntRules);
             casesRules.Add(".stream_on.stream_genshin", streamOnGenshinRules);
+            casesRules.Add(".stream_on.stream_wakfu", streamOnWakfuRules);
             return casesRules;
         }
 

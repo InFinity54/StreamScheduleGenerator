@@ -17,3 +17,4 @@ Logiciel permettant de générer automatiquement un planning de stream.
 * Hunt : Showdown
 * League of Legends
 * Valorant
+* Wakfu
