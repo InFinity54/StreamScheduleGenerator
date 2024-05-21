@@ -40,6 +40,7 @@
             Footer_GenerationStart = new Button();
             GeneratedScheduleSaveDialog = new SaveFileDialog();
             GeneratingIndicator = new Label();
+            Footer_Version = new Label();
             ((System.ComponentModel.ISupportInitialize)Header_Icon).BeginInit();
             SuspendLayout();
             // 
@@ -146,11 +147,22 @@
             GeneratingIndicator.TabIndex = 9;
             GeneratingIndicator.Visible = false;
             // 
+            // Footer_Version
+            // 
+            Footer_Version.ForeColor = SystemColors.WindowFrame;
+            Footer_Version.Location = new Point(12, 543);
+            Footer_Version.Name = "Footer_Version";
+            Footer_Version.Size = new Size(155, 25);
+            Footer_Version.TabIndex = 10;
+            Footer_Version.Text = "%version%";
+            Footer_Version.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // Generator
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(33, 33, 33);
             ClientSize = new Size(1067, 579);
+            Controls.Add(Footer_Version);
             Controls.Add(Footer_GenerationStart);
             Controls.Add(Footer_NewWeek);
             Controls.Add(WeeksSettings_Tabs);
@@ -187,5 +199,6 @@
         private Button Footer_GenerationStart;
         private SaveFileDialog GeneratedScheduleSaveDialog;
         private Label GeneratingIndicator;
+        private Label Footer_Version;
     }
 }

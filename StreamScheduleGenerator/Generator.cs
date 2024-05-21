@@ -3,6 +3,7 @@ using CefSharp.OffScreen;
 using StreamScheduleGenerator.Generation;
 using System.Diagnostics;
 using System.Globalization;
+using System.Reflection;
 
 namespace StreamScheduleGenerator
 {
@@ -19,6 +20,10 @@ namespace StreamScheduleGenerator
 
         private void InitializeUI()
         {
+            // Affichage de la version
+            Version appVersion = Assembly.GetExecutingAssembly().GetName().Version;
+            Footer_Version.Text = "Version " + appVersion.Major + "." + appVersion.Minor + "." + appVersion.Build;
+
             // Sélection du mois courante
             PlanningMonthSelection_Month.SelectedIndex = DateTime.Now.Month - 1;
 
@@ -275,7 +280,7 @@ namespace StreamScheduleGenerator
                 var data = await webBrowser.CaptureScreenshotAsync(CefSharp.DevTools.Page.CaptureScreenshotFormat.Jpeg, 100);
                 File.WriteAllBytes(webBrowserScreenSavePath, data);
 
-                Invoke((MethodInvoker)delegate ()
+                Invoke((System.Windows.Forms.MethodInvoker)delegate ()
                 {
                     ShowAllGenerationParameters();
                     webBrowser.LoadHtml("", "http://schedule", System.Text.Encoding.UTF8);
