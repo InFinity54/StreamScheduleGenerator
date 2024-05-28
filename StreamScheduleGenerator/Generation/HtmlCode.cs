@@ -34,9 +34,20 @@
 
         private static string GenerateChannelLinkCode()
         {
-            string streamPlatformIconFilename = Environment.CurrentDirectory + "\\Images\\platform_";
-            streamPlatformIconFilename += Properties.Settings.Default.scheduleStreamPlatform.ToLower() + "_";
-            streamPlatformIconFilename += Properties.Settings.Default.scheduleStreamPlatformColor + ".png";
+            string streamPlatformIconFilename = Environment.CurrentDirectory + "\\Images\\";
+
+            switch (Properties.Settings.Default.scheduleStreamPlatformColor)
+            {
+                case "default":
+                    streamPlatformIconFilename += "platform_twitch_default.png";
+                    break;
+                case "light":
+                    streamPlatformIconFilename += "platform_twitch_white.png";
+                    break;
+                case "dark":
+                    streamPlatformIconFilename += "platform_twitch_black.png";
+                    break;
+            }
 
             string channelLink = "<div id='channel_link' class='platform_";
             channelLink += Properties.Settings.Default.scheduleStreamPlatform.ToLower() + " " + Properties.Settings.Default.scheduleStreamPlatformColor + "'>";
