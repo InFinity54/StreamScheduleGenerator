@@ -37,6 +37,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "bs-stepper": "^1.7.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^6.3.0-alpha.6",
     "jquery": "^3.7.1"
