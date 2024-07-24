@@ -1,7 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 
+/* CSS globaux */
+@import "scrollbar";
+@import "step";
+
 /* CSS des conteneurs */
 @import "containers/window_buttons";
 
 /* CSS des étapes */
 @import "steps/introduction";
+@import "steps/identity";

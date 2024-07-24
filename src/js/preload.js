@@ -19,5 +19,6 @@ contextBridge.exposeInMainWorld('appAPI', {
   getAppVersion: () => ipcRenderer.invoke('getAppVersion'),
   noSettingsFile: (response) => ipcRenderer.on('noSettingsFile', (response)),
   updateSettings: (response) => ipcRenderer.on('updateSettings', (response)),
+  fontsList: (response) => ipcRenderer.on('fontsList', (response)),
   saveSettings: (args) => ipcRenderer.invoke('saveSettings', args)
 });

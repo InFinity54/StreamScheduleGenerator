@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, Menu, session } = require('electron');
 import { autoUpdater } from "electron-updater";
 const path = require('path');
 const fs = require("fs");
+const fontList = require('font-list');
 const isInProdMode = false;
 const settingsFilePath = path.join(app.getPath("userData"), "settings.json");
 
@@ -49,6 +50,10 @@ const createWindow = () => {
     } else {
       mainWindow.webContents.send('noSettingsFile');
     }
+
+    fontList.getFonts().then(fonts => {
+      mainWindow.webContents.send('fontsList', fonts);
+    });
 
     if (isInProdMode) {
       autoUpdater.checkForUpdates();

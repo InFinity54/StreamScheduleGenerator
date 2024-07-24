@@ -10,3 +10,4 @@ import "./containers/window_buttons";
 
 // JS des étapes
 import "./steps/introduction";
+import "./steps/identity";
