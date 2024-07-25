@@ -39,7 +39,7 @@ function generatePlanning() {
                 jQuery("#generationerror").show();
             }
         })
-    }, 5000);
+    }, 3000);
 }
 
 function generatePlanningTitle() {
