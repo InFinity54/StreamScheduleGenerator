@@ -1,4 +1,4 @@
-import { format, parseISO, isFirstDayOfMonth, formatISO } from 'date-fns';
+import { format, parseISO, isFirstDayOfMonth } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
 jQuery("#planning_newstream_modal_add").click(() => {
@@ -51,7 +51,7 @@ function getStreamGameList() {
 
    if (jQuery("#planning_newstream_game_valorant")[0].checked) {
       if (gameList.length > 0) gameList += `,`;
-      gameList += "valo";
+      gameList += "valorant";
    }
 
    if (jQuery("#planning_newstream_game_wakfu")[0].checked) {
@@ -101,7 +101,7 @@ function createNewStream() {
       html: 'Jeu(x) prévu(s) : '
    }).appendTo(cardBodyDiv);
 
-   gameList.split(",").forEach (game => {
+   gameList.split(",").forEach(game => {
       jQuery('<div>', {
          class: 'planning_game_icon planning_game_icon_' + game
       }).appendTo(cardTextDiv);

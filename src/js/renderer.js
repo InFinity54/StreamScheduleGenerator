@@ -12,6 +12,7 @@ import "./containers/window_buttons";
 import "./steps/introduction";
 import "./steps/identity";
 import "./steps/planning";
+import "./steps/readyforgeneration";
 
 // JS des modales
 import "./modals/planning_newstream";

@@ -1,0 +1,243 @@
+#generatedplanning {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    #generatedplanning_title {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        font-size: 45px;
+        font-weight: bold;
+    }
+
+    #generatedplanning_channellink {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+
+        #generatedplanning_channellink_platformicon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: auto 100%;
+            vertical-align: middle;
+        }
+
+        &.platform_twitch {
+            &.default {
+                * {
+                    color: #8205B4;
+                }
+
+                #generatedplanning_channellink_platformicon {
+                    background-image: url('../../img/platforms/twitch/platform_twitch_default.png');
+                }
+            }
+
+            &.white {
+                * {
+                    color: #FFFFFF;
+                }
+
+                #generatedplanning_channellink_platformicon {
+                    background-image: url('../../img/platforms/twitch/platform_twitch_white.png');
+                }
+            }
+
+            &.black {
+                * {
+                    color: #000000;
+                }
+
+                #generatedplanning_channellink_platformicon {
+                    background-image: url('../../img/platforms/twitch/platform_twitch_black.png');
+                }
+            }
+        }
+
+        #generatedplanning_channellink_text {
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    }
+
+    #generatedplanning_table {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80vw;
+        transform: translate(-50%, -50%);
+    }
+
+    .stream_single, .stream_double, .stream_triple {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+    }
+
+    .stream_single {
+        .game_genshin, .game_wakfu {
+            color: black;
+        }
+
+        .game_icon {
+            top: 75px;
+            left: 75px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .game_background {
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    .stream_double {
+        .game:nth-child(0) {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .game:nth-child(1) {
+            position: absolute;
+            top: 0;
+            left: 75px;
+        }
+
+        .game_icon {
+            top: 75px;
+            left: 38px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .game_background {
+            width: 75px;
+            height: 150px;
+        }
+    }
+
+    .stream_triple {
+        .game:nth-child(0) {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .game:nth-child(1) {
+            position: absolute;
+            top: 0;
+            left: 50px;
+        }
+
+        .game:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: 100px;
+        }
+
+        .game_icon {
+            top: 75px;
+            left: 25px;
+            width: 33px;
+            height: 33px;
+        }
+
+        .game_background {
+            width: 50px;
+            height: 150px;
+        }
+    }
+
+    .stream_hour {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .game_icon {
+        position: relative;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: translate(-50%, -50%);
+    }
+
+    .game_background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .game_genshin {
+        .game_icon {
+            background-image: url('../../img/games/genshin/game_genshin_icon.jpg');
+        }
+
+        .game_background {
+            background-image: url('../../img/games/genshin/game_genshin_wallpaper.jpg');
+        }
+    }
+
+    .game_hunt {
+        .game_icon {
+            background-image: url('../../img/games/hunt/game_hunt_icon.png');
+        }
+
+        .game_background {
+            background-image: url('../../img/games/hunt/game_hunt_wallpaper.jpg');
+        }
+    }
+
+    .game_lol {
+        .game_icon {
+            background-image: url('../../img/games/lol/game_lol_icon.png');
+        }
+
+        .game_background {
+            background-image: url('../../img/games/lol/game_lol_wallpaper.png');
+        }
+    }
+
+    .game_valorant {
+        .game_icon {
+            background-image: url('../../img/games/valorant/game_valorant_icon.png');
+        }
+
+        .game_background {
+            background-image: url('../../img/games/valorant/game_valorant_wallpaper.jpg');
+        }
+    }
+
+    .game_wakfu {
+        .game_icon {
+            background-image: url('../../img/games/wakfu/game_wakfu_icon.png');
+        }
+
+        .game_background {
+            background-image: url('../../img/games/wakfu/game_wakfu_wallpaper.jpg');
+        }
+    }
+}

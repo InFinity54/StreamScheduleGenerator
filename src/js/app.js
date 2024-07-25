@@ -23,3 +23,5 @@ window.updaterAPI.updateDownloading((event, args) => {
 window.updaterAPI.updateDownloaded((event) => {
   // todo
 });
+
+window.resizeTo(1280, 720);

@@ -7,6 +7,7 @@ jQuery("#planning_button_next").click(function () {
     if (jQuery('#planning_form')[0].checkValidity() && jQuery("#planning_eventlist div.col-sm-4").length > 0) {
         jQuery("#planning_error").addClass("d-none");
         jQuery("#planning").fadeOut("500");
+        jQuery("#readyforgeneration").delay(500).fadeIn("500");
     } else {
         var errorMessage = ``;
         jQuery("#planning_error").removeClass("d-none");

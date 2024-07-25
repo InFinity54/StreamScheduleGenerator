@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 /* CSS globaux */
+@import "global";
 @import "scrollbar";
 @import "step";
 
@@ -11,3 +12,7 @@
 @import "steps/introduction";
 @import "steps/identity";
 @import "steps/planning";
+@import "steps/readyforgeneration";
+
+/* CSS du planning généré */
+@import "generatedplanning";
