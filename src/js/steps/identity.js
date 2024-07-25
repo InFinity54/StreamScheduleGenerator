@@ -7,7 +7,7 @@ jQuery("#identity_button_next").click(function () {
     if (jQuery('#identity_form')[0].checkValidity()) {
         jQuery("#identity_error").addClass("d-none");
         jQuery("#identity").fadeOut("500");
-        //jQuery("#step3").delay(500).fadeIn("500");
+        jQuery("#planning").delay(500).fadeIn("500");
     } else {
         var errorMessage = ``;
         jQuery("#identity_error").removeClass("d-none");

@@ -1,0 +1,32 @@
+<div id="planning" class="step">
+    <div class="step_title">
+        <h1>Planning</h1>
+    </div>
+
+    <div class="step_content">
+        <div id="planning_error" class="d-none alert alert-danger"></div>
+
+        <form id="planning_form">
+            <div class="row">
+                <div class="col-sm-12">
+                    Le moment important est arrivé : il faut désormais déterminer le contenu du planning.
+                    <br />
+                    Première question : pour quel mois souhaites-tu créer un planning ? <input type="month" id="planning_desiredmonth" class="align-middle" required />
+                    <br />
+                    Une fois le mois sélectionné, utilise le bouton en bas à gauche de la fenêtre pour créer des streams pour ce mois. Tous les streams créés seront ensuite listés ci-dessous.
+                </div>
+            </div>
+        </form>
+
+        <div id="planning_eventlist" class="row row-cols-3 p-2"></div>
+    </div>
+
+    <div class="step_leftmenu">
+        <button class="btn btn-primary" type="button" id="planning_button_addstream">Ajouter un nouveau stream</button>
+    </div>
+
+    <div class="step_menu">
+        <button class="btn btn-secondary" type="button" id="planning_button_previous">< Précédent</button>
+        <button class="btn btn-primary" type="button" id="planning_button_next">Suivant ></button>
+    </div>
+</div>
