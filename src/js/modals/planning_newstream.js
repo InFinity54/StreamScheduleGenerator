@@ -93,7 +93,7 @@ function createNewStream() {
 
    jQuery('<h5>', {
       class: 'card-title',
-      text: 'Stream du ' + formatDateToText(jQuery("#planning_newstream_date").val()) + ' à ' + jQuery("#planning_newstream_hour").val().replace(":", "h")
+      html: formatDateToText(jQuery("#planning_newstream_date").val()) + '<br />' + jQuery("#planning_newstream_hour").val().replace(":", "h")
    }).appendTo(cardBodyDiv);
 
    var cardTextDiv = jQuery('<div>', {
