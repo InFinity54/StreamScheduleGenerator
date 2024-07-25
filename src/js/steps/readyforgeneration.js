@@ -7,8 +7,7 @@ jQuery("#readyforgeneration_button_previous").click(function () {
 });
 
 jQuery("#readyforgeneration_button_next").click(function () {
-    jQuery("#readyforgeneration").fadeOut("500");
-    //jQuery("#planning").delay(500).fadeIn("500");
+    jQuery("#readyforgeneration").hide();
     generatePlanning();
 });
 
@@ -25,6 +24,18 @@ function generatePlanning() {
         .then(image => jQuery("#generatedplanning").css("background-image", `url('${image}')`));
 
     jQuery("#generatedplanning").show();
+
+    setTimeout(() => {
+        window.electron.takeScreenshot(jQuery("#identity_savepath").val()).then(success => {
+            jQuery("#generatedplanning").hide();
+            if (success) {
+                jQuery("#generationsuccess_savepath").html(jQuery("#identity_savepath").val());
+                jQuery("#generationsuccess").show();
+            } else {
+                jQuery("#generationerror").show();
+            }
+        })
+    }, 5000);
 }
 
 function generatePlanningTitle() {

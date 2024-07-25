@@ -88,6 +88,27 @@ jQuery("#identity_custombgimagebrowse").click(() => {
         });
 });
 
+jQuery("#identity_savepathbrowse").click(() => {
+    const dialogConfig = {
+        properties: ['openFile'],
+        filters: [
+            {
+                name: "Image JPG",
+                extensions: ['jpg'],
+            }
+        ]
+    };
+
+    window.electron.openDialog('showSaveDialog', dialogConfig)
+        .then(result => {
+            if (!result.canceled) {
+                jQuery("#identity_savepath").val(result.filePath);
+            } else {
+                jQuery("#identity_savepath").val("");
+            }
+        });
+});
+
 function initIdentityValues() {
     window.appAPI.fontsList((event, fonts) => {
         for (var font in fonts) {

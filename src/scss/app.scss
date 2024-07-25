@@ -13,6 +13,8 @@
 @import "steps/identity";
 @import "steps/planning";
 @import "steps/readyforgeneration";
+@import "steps/generationsuccess";
+@import "steps/generationerror";
 
 /* CSS du planning généré */
 @import "generatedplanning";

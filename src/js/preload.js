@@ -26,5 +26,6 @@ contextBridge.exposeInMainWorld('appAPI', {
 // Electron API
 contextBridge.exposeInMainWorld('electron', {
   openDialog: (method, config) => ipcRenderer.invoke('dialog', method, config),
-  openImage: (imagePath) => ipcRenderer.invoke('openImage', imagePath)
+  openImage: (imagePath) => ipcRenderer.invoke('openImage', imagePath),
+  takeScreenshot: (savePath) => ipcRenderer.invoke('takeScreenshot', savePath)
 });

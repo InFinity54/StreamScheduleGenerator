@@ -1,0 +1,16 @@
+#generationerror {
+    display: none;
+
+    #generationerror_icon {
+        width: 350px;
+        height: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        background-image: url('../../../img/generation_error.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+}

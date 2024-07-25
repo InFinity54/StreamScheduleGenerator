@@ -120,6 +120,18 @@ const createWindow = () => {
   ipcMain.handle("openImage", (event, imagePath) => {
     return `data:${mime.lookup(imagePath)};base64,${fs.readFileSync(imagePath).toString('base64')}`;
   });
+
+  ipcMain.handle("takeScreenshot", (event, savePath) => {
+    return mainWindow.webContents.capturePage().then(image => {
+      try {
+        fs.writeFileSync(savePath, image.toJPEG(100));
+        return fs.existsSync(savePath);
+      }
+      catch (err) {
+        return false;
+      }
+    });
+  });
 };
 
 // This method will be called when Electron has finished

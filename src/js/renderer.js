@@ -13,6 +13,8 @@ import "./steps/introduction";
 import "./steps/identity";
 import "./steps/planning";
 import "./steps/readyforgeneration";
+import "./steps/generationsuccess";
+import "./steps/generationerror";
 
 // JS des modales
 import "./modals/planning_newstream";
