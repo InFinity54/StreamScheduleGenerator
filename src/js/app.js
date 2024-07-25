@@ -7,6 +7,7 @@ window.appSettings = {
     channelName: '',
     fullChannelLink: false,
     fontName: '',
+    backgroundImagePath: '',
     colors: {
       titles: '#FFFFFF',
       dayOn: '#FFFFFF',

@@ -22,3 +22,9 @@ contextBridge.exposeInMainWorld('appAPI', {
   fontsList: (response) => ipcRenderer.on('fontsList', (response)),
   saveSettings: (args) => ipcRenderer.invoke('saveSettings', args)
 });
+
+// Electron API
+contextBridge.exposeInMainWorld('electron', {
+  openDialog: (method, config) => ipcRenderer.invoke('dialog', method, config),
+  openImage: (imagePath) => ipcRenderer.invoke('openImage', imagePath)
+});

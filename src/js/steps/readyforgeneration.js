@@ -20,6 +20,10 @@ function generatePlanning() {
     jQuery("#windowButtons").hide();
     window.resizeTo(1920, 1080);
     jQuery("#generatedplanning").html(planningHtml);
+
+    window.electron.openImage(window.appSettings.identity.backgroundImagePath)
+        .then(image => jQuery("#generatedplanning").css("background-image", `url('${image}')`));
+
     jQuery("#generatedplanning").show();
 }
 
@@ -92,7 +96,6 @@ function generateDay(targetedDay) {
 
     if (streamOfTheDay.length > 0) {
         const games = streamOfTheDay.data("stream-games").split(",");
-        console.log(games);
 
         dayContent += ` color: ${jQuery("#identity_dayoncolor").val()};">`;
 

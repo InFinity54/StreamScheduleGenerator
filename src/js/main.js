@@ -1,10 +1,12 @@
-const { app, BrowserWindow, ipcMain, Menu, session } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, protocol } = require('electron');
 import { autoUpdater } from "electron-updater";
+
 const path = require('path');
 const fs = require("fs");
 const fontList = require('font-list');
 const isInProdMode = false;
 const settingsFilePath = path.join(app.getPath("userData"), "settings.json");
+const mime = require('mime-types');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -109,6 +111,14 @@ const createWindow = () => {
 
   ipcMain.handle('saveSettings', (event, args) => {
     fs.writeFileSync(settingsFilePath, args, { encoding: "utf-8" });
+  });
+
+  ipcMain.handle('dialog', (event, method, params) => {
+    return dialog[method](params);
+  });
+
+  ipcMain.handle("openImage", (event, imagePath) => {
+    return `data:${mime.lookup(imagePath)};base64,${fs.readFileSync(imagePath).toString('base64')}`;
   });
 };
 

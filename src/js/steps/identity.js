@@ -12,6 +12,7 @@ jQuery("#identity_button_next").click(function () {
                 channelName: jQuery("#identity_twitchusername").val(),
                 fullChannelLink: jQuery("#identity_twitchfulllink")[0].checked,
                 fontName: jQuery("#identity_font").val(),
+                backgroundImagePath: jQuery("#identity_custombgimage").val(),
                 colors: {
                     titles: jQuery("#identity_titlescolor").val(),
                     dayOn: jQuery("#identity_dayoncolor").val(),
@@ -42,6 +43,11 @@ jQuery("#identity_button_next").click(function () {
             errorMessage += `La police d'écriture n'a pas été renseignée.`;
         }
 
+        if (!jQuery("#identity_custombgimage")[0].validity.valid) {
+            if (errorMessage.length > 0) errorMessage += `<br />`;
+            errorMessage += `Aucune image de fond n'a été choisie.`;
+        }
+
         if (!jQuery("#identity_titlescolor")[0].validity.valid) {
             if (errorMessage.length > 0) errorMessage += `<br />`;
             errorMessage += `La couleur des titres n'a pas été renseignée.`;
@@ -61,6 +67,27 @@ jQuery("#identity_button_next").click(function () {
     }
 });
 
+jQuery("#identity_custombgimagebrowse").click(() => {
+    const dialogConfig = {
+        properties: ['openFile'],
+        filters: [
+            {
+                name: "Images",
+                extensions: ['jpg','jpeg','png'],
+            }
+        ]
+    };
+
+    window.electron.openDialog('showOpenDialog', dialogConfig)
+        .then(result => {
+            if (!result.canceled) {
+                jQuery("#identity_custombgimage").val(result.filePaths[0]);
+            } else {
+                jQuery("#identity_custombgimage").val("");
+            }
+        });
+});
+
 function initIdentityValues() {
     window.appAPI.fontsList((event, fonts) => {
         for (var font in fonts) {
@@ -77,6 +104,7 @@ function initIdentityValues() {
     jQuery("#identity_twitchlogocolor").val(window.appSettings.identity.platformColor);
     jQuery("#identity_twitchusername").val(window.appSettings.identity.channelName);
     jQuery("#identity_twitchfulllink")[0].checked = window.appSettings.identity.fullChannelLink;
+    jQuery("#identity_custombgimage").val(window.appSettings.identity.backgroundImagePath);
     jQuery("#identity_titlescolor").val(window.appSettings.identity.colors.titles);
     jQuery("#identity_dayoncolor").val(window.appSettings.identity.colors.dayOn);
     jQuery("#identity_dayoffcolor").val(window.appSettings.identity.colors.dayOff);

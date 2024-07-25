@@ -42,7 +42,8 @@
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^6.3.0-alpha.6",
     "font-list": "^1.5.1",
-    "jquery": "^3.7.1"
+    "jquery": "^3.7.1",
+    "mime-types": "^2.1.35"
   },
   "build": {
     "appId": "fr.infinity54.streamschedulegenerator",

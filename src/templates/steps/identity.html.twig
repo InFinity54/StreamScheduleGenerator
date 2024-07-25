@@ -51,13 +51,11 @@
 
             <div class="row mt-3">
                 <div class="col-sm-12">
-                    Image de fond (bientôt disponible)
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-sm-12">
-                    Fichier de destination (bientôt disponible)
+                    <label for="identity_custombgimage" class="form-label">Image de fond du planning</label>
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary" type="button" id="identity_custombgimagebrowse">Choisir un fichier</button>
+                        <input class="form-control" type="text" id="identity_custombgimage" required>
+                    </div>
                 </div>
             </div>
 
@@ -74,6 +72,12 @@
                     <label for="identity_dayoffcolor">Couleur des jours OFF</label> : <input required type="color" class="align-middle" id="identity_dayoffcolor">
                 </div>
             </div>
+
+            <!--<div class="row mt-3">
+                <div class="col-sm-12">
+                    Fichier de destination du planning généré
+                </div>
+            </div>-->
         </form>
     </div>
 
