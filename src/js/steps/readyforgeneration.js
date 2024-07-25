@@ -27,11 +27,15 @@ function generatePlanning() {
 
     setTimeout(() => {
         window.electron.takeScreenshot(jQuery("#identity_savepath").val()).then(success => {
+            window.resizeTo(1280, 720);
+            window.windowAPI.windowRecenter();
             jQuery("#generatedplanning").hide();
+
             if (success) {
                 jQuery("#generationsuccess_savepath").html(jQuery("#identity_savepath").val());
                 jQuery("#generationsuccess").show();
             } else {
+                jQuery("#windowButtons").show();
                 jQuery("#generationerror").show();
             }
         })

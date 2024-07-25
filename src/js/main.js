@@ -132,6 +132,10 @@ const createWindow = () => {
       }
     });
   });
+
+  ipcMain.handle("windowRecenter", (event) => {
+    mainWindow.center();
+  });
 };
 
 // This method will be called when Electron has finished

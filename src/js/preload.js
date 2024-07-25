@@ -11,7 +11,8 @@ contextBridge.exposeInMainWorld('updaterAPI', {
 // Window API
 contextBridge.exposeInMainWorld('windowAPI', {
   windowReduce: () => ipcRenderer.invoke('windowReduce'),
-  windowClose: () => ipcRenderer.invoke('windowClose')
+  windowClose: () => ipcRenderer.invoke('windowClose'),
+  windowRecenter: () => ipcRenderer.invoke('windowRecenter'),
 });
 
 // App API
