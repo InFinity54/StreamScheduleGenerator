@@ -1,3 +1,5 @@
+import { addMonths, format } from "date-fns";
+
 jQuery("#identity_button_previous").click(function () {
     jQuery("#identity").fadeOut("500");
     jQuery("#introduction").delay(500).fadeIn("500");
@@ -109,7 +111,7 @@ jQuery("#identity_savepathbrowse").click(() => {
         });
 });
 
-function initIdentityValues() {
+function initAppValues() {
     window.appAPI.fontsList((event, fonts) => {
         for (var font in fonts) {
             jQuery('#identity_font').append(
@@ -129,6 +131,12 @@ function initIdentityValues() {
     jQuery("#identity_titlescolor").val(window.appSettings.identity.colors.titles);
     jQuery("#identity_dayoncolor").val(window.appSettings.identity.colors.dayOn);
     jQuery("#identity_dayoffcolor").val(window.appSettings.identity.colors.dayOff);
+
+
+    let date = Date.now();
+    date = addMonths(date, 1);
+    let formattedDate = format(date, 'yyyy-MM');
+    jQuery('#planning_desiredmonth').val(formattedDate).change();
 }
 
-export { initIdentityValues }
+export { initAppValues }

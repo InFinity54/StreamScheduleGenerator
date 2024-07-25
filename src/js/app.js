@@ -1,4 +1,4 @@
-import { initIdentityValues } from "./steps/identity";
+import { initAppValues } from "./steps/identity";
 
 window.appSettings = {
   identity: {
@@ -18,12 +18,12 @@ window.appSettings = {
 
 window.appAPI.noSettingsFile((event) => {
   window.appAPI.saveSettings(JSON.stringify(window.appSettings));
-  initIdentityValues();
+  initAppValues();
 });
 
 window.appAPI.updateSettings((event, args) => {
   window.appSettings = JSON.parse(args);
-  initIdentityValues();
+  initAppValues();
 });
 
 window.updaterAPI.noUpdateAvailable((event) => {
