@@ -9,6 +9,7 @@ import "./app";
 import "./containers/window_buttons";
 
 // JS des étapes
+import "./steps/update";
 import "./steps/introduction";
 import "./steps/identity";
 import "./steps/planning";

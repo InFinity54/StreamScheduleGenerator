@@ -1,16 +1,18 @@
-#introduction {
-    display: none;
-
-    #introduction_appicon {
-        width: 150px;
-        height: 150px;
+#update {
+    #update_appicon {
+        width: 350px;
+        height: 350px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 15px;
-        background-image: url('../../../img/app_icon.png');
+        background-image: url('../../../img/app_update.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
+    }
+
+    #update_progressbar {
+
     }
 }

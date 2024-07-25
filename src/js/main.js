@@ -4,7 +4,7 @@ import { autoUpdater } from "electron-updater";
 const path = require('path');
 const fs = require("fs");
 const fontList = require('font-list');
-const isInProdMode = false;
+const isInProdMode = true;
 const settingsFilePath = path.join(app.getPath("userData"), "settings.json");
 const mime = require('mime-types');
 
