@@ -82,12 +82,21 @@
         transform: translate(-50%, -50%);
     }
 
-    .stream_single, .stream_double, .stream_triple {
+    .stream_off, .stream_single, .stream_double, .stream_triple {
         position: relative;
         top: 0;
         left: 0;
         width: 150px;
         height: 150px;
+    }
+
+    .stream_off {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
     }
 
     .stream_single {

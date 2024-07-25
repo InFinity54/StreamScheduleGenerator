@@ -154,7 +154,7 @@ function generateDay(targetedDay) {
 
         dayContent += `</div>`;
     } else {
-        dayContent += ` color: ${jQuery("#identity_dayoffcolor").val()};">OFF</div>`;
+        dayContent += ` color: ${jQuery("#identity_dayoffcolor").val()};"><div class="stream_off">OFF</div></div>`;
     }
 
     return dayContent;
