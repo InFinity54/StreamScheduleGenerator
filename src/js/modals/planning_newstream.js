@@ -15,12 +15,12 @@ jQuery("#planning_newstream_modal_add").click(() => {
       jQuery("#planning_newstream_modal_error").removeClass("d-none");
 
       if (!jQuery("#planning_newstream_date")[0].validity.valid) {
-         errorMessage += `Le nom d'utilisateur Twitch n'a pas été renseigné.`;
+         errorMessage += `La date du stream n'a pas été renseignée.`;
       }
 
       if (!jQuery("#planning_newstream_hour")[0].validity.valid) {
          if (errorMessage.length > 0) errorMessage += `<br />`;
-         errorMessage += `La couleur du logo de Twitch n'a pas été renseignée.`;
+         errorMessage += `L'heure de début du stream n'a pas été renseignée.`;
       }
 
       if (!jQuery("#planning_newstream_game_genshin")[0].checked && !jQuery("#planning_newstream_game_hunt")[0].checked && !jQuery("#planning_newstream_game_lol")[0].checked && !jQuery("#planning_newstream_game_valorant")[0].checked && !jQuery("#planning_newstream_game_wakfu")[0].checked) {
