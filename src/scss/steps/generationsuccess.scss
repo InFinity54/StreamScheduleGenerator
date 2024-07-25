@@ -1,0 +1,16 @@
+#generationsuccess {
+    display: none;
+
+    #generationsuccess_icon {
+        width: 350px;
+        height: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        background-image: url('../../../img/generation_success.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+}

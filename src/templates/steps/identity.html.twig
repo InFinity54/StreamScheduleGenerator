@@ -1,0 +1,92 @@
+<div id="identity" class="step">
+    <div class="step_title">
+        <h1>Identité et apparence</h1>
+    </div>
+
+    <div class="step_content">
+        <p>Commençons par les informations essentielles : pour générer ton planning, il faut que tu définisses ta chaîne Twitch (et comment tu veux qu'elle apparaisse), et l'apparence globale du planning. Son contenu sera déterminé plus tard.</p>
+
+        <div id="identity_error" class="d-none alert alert-danger"></div>
+
+        <form id="identity_form">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" required id="identity_twitchusername">
+                        <label for="identity_twitchusername">Nom d'utilisateur Twitch</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-floating">
+                        <select id="identity_twitchlogocolor" required class="form-select">
+                            <option value="default" selected>Violet</option>
+                            <option value="white">Blanc</option>
+                            <option value="black">Noir</option>
+                        </select>
+                        <label for="identity_twitchlogocolor">Couleur du logo de Twitch</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="identity_twitchfulllink">
+                        <label class="form-check-label" for="identity_twitchfulllink">Afficher le lien complet vers la chaîne Twitch</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <div class="form-floating">
+                        <select id="identity_font" class="form-select" required>
+                            <option hidden selected></option>
+                        </select>
+                        <label for="identity_font">Police d'écriture</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <label for="identity_custombgimage" class="form-label">Image de fond du planning</label>
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary" type="button" id="identity_custombgimagebrowse">Choisir un fichier</button>
+                        <input class="form-control" type="text" id="identity_custombgimage" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-sm-4">
+                    <label for="identity_titlescolor">Couleur des titres</label> : <input required type="color" class="align-middle" id="identity_titlescolor">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="identity_dayoncolor">Couleur des jours ON</label> : <input required type="color" class="align-middle" id="identity_dayoncolor">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="identity_dayoffcolor">Couleur des jours OFF</label> : <input required type="color" class="align-middle" id="identity_dayoffcolor">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <label for="identity_savepath" class="form-label">Fichier de destination du planning généré</label>
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary" type="button" id="identity_savepathbrowse">Choisir un fichier</button>
+                        <input class="form-control" type="text" id="identity_savepath" required>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="step_menu">
+        <button class="btn btn-secondary" type="button" id="identity_button_previous">< Précédent</button>
+        <button class="btn btn-primary" type="button" id="identity_button_next">Suivant ></button>
+    </div>
+</div>
