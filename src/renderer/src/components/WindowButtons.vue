@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 function windowReduce() {
   window.electron.ipcRenderer.send('windowReduce')
 }

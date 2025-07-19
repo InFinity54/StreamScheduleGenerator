@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
+
 import WindowButtons from './components/WindowButtons.vue'
+import IntroductionStep from './components/steps/IntroductionStep.vue'
 
 window.appSettings = {
   identity: {
@@ -25,6 +27,8 @@ onMounted(() => {
 
 <template>
   <WindowButtons />
+
+  <IntroductionStep />
 
   <div id="generatedplanning"></div>
 </template>
