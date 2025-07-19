@@ -1,34 +1,30 @@
-# fr.infinity54.streamschedulegenerator
+# Générateur de planning de stream
 
-An Electron application with Vue
+Logiciel permettant de générer automatiquement un planning de stream personnalisable.
 
-## Recommended IDE Setup
+## Éléments personnalisables
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+* Police d'écriture utilisée
+* Couleur du logo et du nom de la chaîne Twitch
+* Image de fond du planning
+* Couleurs des textes
 
-## Project Setup
+## Capacités du programme
 
-### Install
+* Enregistrer tous les streams d'un mois sélectionné (par défaut, il s'agit du mois suivant à partir de la date courante)
+* Générer le planning automatiquement pour l'ensemble du mois, en y intégrant les streams enregistrés précédemment
+* Possibilité d'ajouter jusqu'à 3 jeux sur un stream
+* Afficher l'heure de début du stream pour chaque journée
+* Matérialiser les journées sans stream (journées "off")
 
-```bash
-$ yarn
-```
+## Exemple
 
-### Development
+![Exemple de planning généré](example.jpg)
 
-```bash
-$ yarn dev
-```
+## Jeux actuellement disponibles
 
-### Build
-
-```bash
-# For windows
-$ yarn build:win
-
-# For macOS
-$ yarn build:mac
-
-# For Linux
-$ yarn build:linux
-```
+* [Genshin Impact](https://genshin.hoyoverse.com/fr/)
+* [Hunt : Showdown](https://www.huntshowdown.com/)
+* [League of Legends](https://www.leagueoflegends.com/fr-fr/)
+* [Valorant](https://playvalorant.com/fr-fr/)
+* [Wakfu](https://www.wakfu.com/fr/mmorpg)
