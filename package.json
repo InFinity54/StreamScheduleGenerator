@@ -27,12 +27,8 @@
     "@electron-toolkit/utils": "^4.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.7",
-    "bs-stepper": "^1.7.0",
     "date-fns": "^4.1.0",
-    "electron-updater": "^6.3.9",
-    "font-list": "^1.5.1",
-    "jquery": "^3.7.1",
-    "mime-types": "^3.0.1"
+    "electron-updater": "^6.3.9"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.0.0",
