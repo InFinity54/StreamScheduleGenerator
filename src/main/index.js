@@ -1,17 +1,20 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
+import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { autoUpdater } from 'electron-updater'
 import icon from '../../resources/icon.png?asset'
+
+let mainWindow
 
 function createWindow() {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1280,
     height: 720,
-    'minWidth': 1280,
-    'minHeight': 720,
-    'maxWidth': 1920,
-    'maxHeight': 1080,
+    minWidth: 1280,
+    minHeight: 720,
+    maxWidth: 1920,
+    maxHeight: 1080,
     show: false,
     titleBarStyle: 'hidden',
     frame: false,
@@ -40,11 +43,6 @@ function createWindow() {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
-
-  ipcMain.on('windowReduce', () => {
-    mainWindow.minimize();
-    mainWindow.webContents.setAudioMuted(true)
-  })
 }
 
 // This method will be called when Electron has finished
@@ -61,17 +59,49 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
+  autoUpdater.setFeedURL({
+    provider: 'github',
+    repo: 'StreamScheduleGenerator',
+    owner: 'InFinity54',
+    private: false,
+    releaseType: 'release'
+  })
+  autoUpdater.forceDevUpdateConfig = true
+  autoUpdater
+    .on('update-not-available', (m) => {
+      mainWindow.webContents.send('update-not-available', m)
+    })
+    .on('update-available', (m) => {
+      mainWindow.webContents.send('update-available', m)
+    })
+    .on('download-progress', (m) => {
+      mainWindow.webContents.send('update-download-progress', m)
+    })
+    .on('update-downloaded', (m) => {
+      mainWindow.webContents.send('update-downloaded', m)
+
+      setTimeout(() => {
+        autoUpdater.quitAndInstall()
+      }, 3000)
+    })
+
+  ipcMain.on('windowReduce', () => {
+    mainWindow.minimize()
+  })
+
   ipcMain.on('windowClose', () => {
     app.exit()
   })
-
-  createWindow()
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+
+  createWindow()
+
+  autoUpdater.checkForUpdatesAndNotify()
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common

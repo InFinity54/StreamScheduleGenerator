@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 
 import WindowButtons from './components/WindowButtons.vue'
+import UpdateStep from './components/steps/UpdateStep.vue'
 import IntroductionStep from './components/steps/IntroductionStep.vue'
 
 window.appSettings = {
@@ -28,6 +29,7 @@ onMounted(() => {
 <template>
   <WindowButtons />
 
+  <UpdateStep />
   <IntroductionStep />
 
   <div id="generatedplanning"></div>

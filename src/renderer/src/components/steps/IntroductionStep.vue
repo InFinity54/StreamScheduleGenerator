@@ -36,7 +36,7 @@ function nextStep() {
 
 <style scoped lang="scss">
 #introduction {
-  //display: none;
+  display: none;
 
   #introduction_appicon {
     width: 150px;
