@@ -1,0 +1,38 @@
+/* Personnalisation de la scrollbar */
+:root {
+  --scrollbar-width: 10px; /* Largeur de la scrollbar */
+  --scrollbar-bg: var(--bs-body-bg); /* Couleur de fond de la scrollbar (light) */
+  --scrollbar-thumb-bg: var(--bs-secondary); /* Couleur du pouce de la scrollbar (primary) */
+  --scrollbar-thumb-border-radius: 10px; /* Rayon de bordure du pouce */
+}
+
+/* Scrollbar pour les navigateurs Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bg);
+  border-radius: var(--scrollbar-thumb-border-radius);
+  border: 2px solid var(--scrollbar-bg); /* Pour ajouter un espacement autour du pouce */
+}
+
+/* Scrollbar pour les navigateurs Firefox */
+* {
+  scrollbar-width: thin; /* Largeur de la scrollbar */
+  scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-bg); /* Couleur du pouce et de la track */
+}
+
+/* Optionnel : Styliser les scrollbars en cas de survol */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bs-body-color); /* Couleur plus sombre pour le survol */
+}
+
+* {
+  scrollbar-color: var(--bs-body-color) var(--scrollbar-bg); /* Couleur du pouce en cas de survol */
+}
