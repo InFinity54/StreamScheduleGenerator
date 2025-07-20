@@ -1,12 +1,12 @@
 <script setup>
-function nextStep() {
+async function nextStep() {
+
   document.getElementById('introduction').animate([{ opacity: 1 }, { opacity: 0 }], 500)
 
   setTimeout(() => {
     document.getElementById('introduction').style.display = 'none'
-    /*document.getElementById('identity')
-      .style.display = 'block'
-      .animate([{ opacity: 0 }, { opacity: 1 }], 500)*/
+    document.getElementById('identity').style.display = 'block'
+    document.getElementById('identity').animate([{ opacity: 0 }, { opacity: 1 }], 500)
   }, 500)
 }
 </script>
