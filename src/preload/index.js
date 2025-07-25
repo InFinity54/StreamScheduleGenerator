@@ -8,6 +8,7 @@ const api = {
   updateDownloading: (callback) => ipcRenderer.on('update-download-progress', callback),
   updateDownloaded: (callback) => ipcRenderer.on('update-downloaded', callback),
   fontsList: (response) => ipcRenderer.on('fontsList', response),
+  appInitialized: (callback) => ipcRenderer.on('appInitialized', callback),
   openDialog: (method, config) => ipcRenderer.invoke('dialog', method, config)
 }
 
@@ -33,4 +34,5 @@ if (process.contextIsolated) {
 } else {
   window.electron = electronAPI
   window.api = api
+  window.settings = settings
 }

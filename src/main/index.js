@@ -107,6 +107,10 @@ app.whenReady().then(() => {
     app.exit()
   })
 
+  ipcMain.on('settingsApplied', () => {
+    mainWindow.webContents.send('appInitialized', null)
+  })
+
   ipcMain.handle('settings', async (_, { method, key, value }) => {
     switch (method) {
       case 'has': return settings.has(key)

@@ -1,4 +1,6 @@
-<script setup lang="ts">
+<script setup>
+import { onMounted } from 'vue'
+
 function previousStep() {
   document.getElementById('identity').animate([{ opacity: 1 }, { opacity: 0 }], 500)
 
@@ -10,29 +12,35 @@ function previousStep() {
 }
 
 function nextStep() {
-  document.getElementById('identity').animate([{ opacity: 1 }, { opacity: 0 }], 500)
+  if (checkForm()) {
+    document.getElementById('identity').animate([{ opacity: 1 }, { opacity: 0 }], 500)
 
-  setTimeout(() => {
-    document.getElementById('identity').style.display = 'none'
-    //document.getElementById('planning').style.display = 'block'
-    //document.getElementById('planning').animate([{ opacity: 0 }, { opacity: 1 }], 500)
-  }, 500)
+    setTimeout(() => {
+      document.getElementById('identity').style.display = 'none'
+      document.getElementById('planning').style.display = 'block'
+      document.getElementById('planning').animate([{ opacity: 0 }, { opacity: 1 }], 500)
+    }, 500)
+  }
 }
 
 function usernameChange() {
   window.settings.set('channelName', document.getElementById('identity_twitchusername').value)
+  checkForm()
 }
 
 function platformLogoColorChange() {
   window.settings.set('platformColor', document.getElementById('identity_twitchlogocolor').value)
+  checkForm()
 }
 
 function fullLinkChange() {
   window.settings.set('fullChannelLink', document.getElementById('identity_twitchfulllink').checked)
+  checkForm()
 }
 
 function fontChange() {
   window.settings.set('fontName', document.getElementById('identity_font').value)
+  checkForm()
 }
 
 function newBgImg() {
@@ -45,18 +53,21 @@ function newBgImg() {
       }
     ]
   })
-    .then(result => {
+    .then((result) => {
       if (!result.canceled) {
-        document.getElementById("identity_custombgimage").value = result.filePaths[0];
+        document.getElementById("identity_custombgimage").value = result.filePaths[0]
         bgImgChange()
       } else {
-        document.getElementById("identity_custombgimage").value = '';
+        document.getElementById("identity_custombgimage").value = ''
       }
-    });
+
+      checkForm()
+    })
 }
 
 function bgImgChange() {
   window.settings.set('backgroundImagePath', document.getElementById('identity_custombgimage').value)
+  checkForm()
 }
 
 function titlesColorChange() {
@@ -81,14 +92,75 @@ function newDestFile() {
       }
     ]
   })
-    .then(result => {
+    .then((result) => {
       if (!result.canceled) {
-        document.getElementById("identity_savepath").value = result.filePath;
+        document.getElementById("identity_savepath").value = result.filePath
       } else {
-        document.getElementById("identity_savepath").value = '';
+        document.getElementById("identity_savepath").value = ''
       }
-    });
+
+      checkForm()
+    })
 }
+
+function checkForm() {
+  if (document.getElementById('identity_twitchusername').value !== '') {
+    document.getElementById('identity_twitchusername').classList.add('is-valid')
+    document.getElementById('identity_twitchusername').classList.remove('is-invalid')
+  } else {
+    document.getElementById('identity_twitchusername').classList.add('is-invalid')
+    document.getElementById('identity_twitchusername').classList.remove('is-valid')
+  }
+
+  if (document.getElementById('identity_twitchlogocolor').value !== '') {
+    document.getElementById('identity_twitchlogocolor').classList.add('is-valid')
+    document.getElementById('identity_twitchlogocolor').classList.remove('is-invalid')
+  } else {
+    document.getElementById('identity_twitchlogocolor').classList.add('is-invalid')
+    document.getElementById('identity_twitchlogocolor').classList.remove('is-valid')
+  }
+
+  if (document.getElementById('identity_font').value !== '') {
+    document.getElementById('identity_font').classList.add('is-valid')
+    document.getElementById('identity_font').classList.remove('is-invalid')
+  } else {
+    document.getElementById('identity_font').classList.add('is-invalid')
+    document.getElementById('identity_font').classList.remove('is-valid')
+  }
+
+  if (document.getElementById('identity_custombgimage').value !== '') {
+    document.getElementById('identity_custombgimage').classList.add('is-valid')
+    document.getElementById('identity_custombgimage').classList.remove('is-invalid')
+  } else {
+    document.getElementById('identity_custombgimage').classList.add('is-invalid')
+    document.getElementById('identity_custombgimage').classList.remove('is-valid')
+  }
+
+  if (document.getElementById('identity_savepath').value !== '') {
+    document.getElementById('identity_savepath').classList.add('is-valid')
+    document.getElementById('identity_savepath').classList.remove('is-invalid')
+  } else {
+    document.getElementById('identity_savepath').classList.add('is-invalid')
+    document.getElementById('identity_savepath').classList.remove('is-valid')
+  }
+
+  return (
+    document.getElementById('identity_twitchusername').value !== ""
+    && document.getElementById('identity_twitchlogocolor').value !== ""
+    && document.getElementById('identity_font').value !== ""
+    && document.getElementById('identity_custombgimage').value !== ""
+    && document.getElementById('identity_titlescolor').value !== ""
+    && document.getElementById('identity_dayoncolor').value !== ""
+    && document.getElementById('identity_dayoffcolor').value !== ""
+    && document.getElementById('identity_savepath').value !== ""
+  )
+}
+
+onMounted(() => {
+  window.api.appInitialized(async () => {
+    checkForm()
+  })
+})
 </script>
 
 <template>
