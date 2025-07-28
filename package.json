@@ -30,7 +30,8 @@
     "date-fns": "^4.1.0",
     "electron-settings": "^4.0.4",
     "electron-updater": "^6.3.9",
-    "font-list": "^1.5.1"
+    "font-list": "^1.5.1",
+    "solid-toast": "^0.5.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.0.0",

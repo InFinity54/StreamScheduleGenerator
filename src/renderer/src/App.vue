@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
+import Toaster from 'solid-toast'
 
 import WindowButtons from './components/WindowButtons.vue'
 import UpdateStep from './components/steps/UpdateStep.vue'
@@ -32,6 +33,7 @@ window.api.fontsList(async (event, fonts) => {
 
 <template>
   <WindowButtons />
+  <Toaster position="bottom-left" gutter={8} />
 
   <UpdateStep />
   <IntroductionStep />

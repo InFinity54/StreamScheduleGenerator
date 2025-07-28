@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
+import { toast } from 'solid-toast'
 
 function previousStep() {
   document.getElementById('identity').animate([{ opacity: 1 }, { opacity: 0 }], 500)
@@ -20,6 +21,8 @@ function nextStep() {
       document.getElementById('planning').style.display = 'block'
       document.getElementById('planning').animate([{ opacity: 0 }, { opacity: 1 }], 500)
     }, 500)
+  } else {
+    toast.error("Certains éléments obligatoires n'ont pas été rempli correctement.")
   }
 }
 
