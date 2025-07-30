@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
-import { toast } from 'solid-toast'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 
 function previousStep() {
   document.getElementById('identity').animate([{ opacity: 1 }, { opacity: 0 }], 500)

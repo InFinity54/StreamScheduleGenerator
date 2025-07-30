@@ -1,7 +1,7 @@
 {
   "name": "fr.infinity54.streamschedulegenerator",
   "productName": "Stream Schedule Generator",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Générateur automatique de planning de stream.",
   "license": "CC-BY-SA-4.0",
   "main": "./out/main/index.js",
@@ -31,7 +31,7 @@
     "electron-settings": "^4.0.4",
     "electron-updater": "^6.3.9",
     "font-list": "^1.5.1",
-    "solid-toast": "^0.5.0"
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.0.0",
