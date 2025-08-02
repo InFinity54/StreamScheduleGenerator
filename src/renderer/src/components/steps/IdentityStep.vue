@@ -24,7 +24,7 @@ function nextStep() {
       document.getElementById('planning').animate([{ opacity: 0 }, { opacity: 1 }], 500)
     }, 500)
   } else {
-    toast.error("Certains éléments obligatoires n'ont pas été rempli correctement.")
+    toast.error("Certains éléments obligatoires concernant votre identité n'ont pas été rempli correctement.")
   }
 }
 
@@ -176,8 +176,6 @@ onMounted(() => {
 
     <div class="step_content">
       <p>Commençons par les informations essentielles : pour générer ton planning, il faut que tu définisses ta chaîne Twitch (et comment tu veux qu'elle apparaisse), et l'apparence globale du planning. Son contenu sera déterminé plus tard.</p>
-
-      <div id="identity_error" class="d-none alert alert-danger"></div>
 
       <form id="identity_form">
         <div class="row">
