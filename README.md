@@ -28,3 +28,7 @@ Logiciel permettant de générer automatiquement un planning de stream personnal
 * [League of Legends](https://www.leagueoflegends.com/fr-fr/)
 * [Valorant](https://playvalorant.com/fr-fr/)
 * [Wakfu](https://www.wakfu.com/fr/mmorpg)
+
+## Plateformes actuellement disponibles
+
+* [Twitch](https://twitch.tv)
