@@ -9,7 +9,8 @@ const api = {
   updateDownloaded: (callback) => ipcRenderer.on('update-downloaded', callback),
   fontsList: (response) => ipcRenderer.on('fontsList', response),
   appInitialized: (callback) => ipcRenderer.on('appInitialized', callback),
-  openDialog: (method, config) => ipcRenderer.invoke('dialog', method, config)
+  openDialog: (method, config) => ipcRenderer.invoke('dialog', method, config),
+  generatePlanning: (config) => ipcRenderer.invoke('generatePlanning', config)
 }
 
 const settings = {

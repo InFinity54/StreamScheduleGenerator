@@ -38,8 +38,8 @@ function nextStep() {
 
     setTimeout(() => {
       document.getElementById('planning').style.display = 'none'
-      //document.getElementById('readyforgeneration').style.display = 'block'
-      //document.getElementById('readyforgeneration').animate([{ opacity: 0 }, { opacity: 1 }], 500)
+      document.getElementById('readyforgeneration').style.display = 'block'
+      document.getElementById('readyforgeneration').animate([{ opacity: 0 }, { opacity: 1 }], 500)
     }, 500)
   } else {
     if (document.getElementById('planning_desiredmonth').value === '') {
@@ -341,23 +341,23 @@ function checkModalForm() {
     }
 
     :deep(.planning_game_icon_genshin) {
-      background-image: url('../../assets/games/genshin/game_genshin_icon.jpg');
+      background-image: url('../../assets/games/game_genshin_icon.jpg');
     }
 
     :deep(.planning_game_icon_hunt) {
-      background-image: url('../../assets/games/hunt/game_hunt_icon.png');
+      background-image: url('../../assets/games/game_hunt_icon.png');
     }
 
     :deep(.planning_game_icon_lol) {
-      background-image: url('../../assets/games/lol/game_lol_icon.png');
+      background-image: url('../../assets/games/game_lol_icon.png');
     }
 
     :deep(.planning_game_icon_valorant) {
-      background-image: url('../../assets/games/valorant/game_valorant_icon.png');
+      background-image: url('../../assets/games/game_valorant_icon.png');
     }
 
     :deep(.planning_game_icon_wakfu) {
-      background-image: url('../../assets/games/wakfu/game_wakfu_icon.png');
+      background-image: url('../../assets/games/game_wakfu_icon.png');
     }
   }
 

@@ -1,6 +1,5 @@
 <script setup>
 async function nextStep() {
-
   document.getElementById('introduction').animate([{ opacity: 1 }, { opacity: 0 }], 500)
 
   setTimeout(() => {

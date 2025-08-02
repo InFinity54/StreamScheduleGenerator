@@ -4,7 +4,10 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { autoUpdater } from 'electron-updater'
 import * as settings from 'electron-settings'
 import * as fontList from 'font-list'
+import * as fs from 'fs'
 import icon from '../../resources/icon.png?asset'
+import { generatePlanning } from './planningGeneration'
+import * as path from 'node:path'
 
 let mainWindow
 
@@ -43,6 +46,10 @@ function createWindow() {
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+
+    setTimeout(() => {
+
+    }, 1000)
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -126,6 +133,44 @@ app.whenReady().then(() => {
     return dialog[method](params);
   });
 
+  ipcMain.handle('generatePlanning', async (event, config) => {
+    const htmlPath = path.join(app.getPath("temp"), `StreamScheduleGenerator_Planning_${(new Date().toJSON().slice(0,10))}_${(new Date().toJSON().slice(11,16)).replace(':', '-')}.html`)
+    fs.writeFileSync(htmlPath, generatePlanning(config, settings), { encoding: 'utf8' })
+
+    let planningWindow = new BrowserWindow({
+      width: 1920,
+      height: 1080,
+      minWidth: 1920,
+      minHeight: 1080,
+      maxWidth: 1920,
+      maxHeight: 1080,
+      show: false,
+      titleBarStyle: 'hidden',
+      frame: false,
+      offscreen: true
+    })
+
+    await planningWindow.loadFile(htmlPath)
+
+    return new Promise((resolve) => {
+      planningWindow.once('ready-to-show', () => {
+        setTimeout(async () => {
+          try {
+            const image = await planningWindow.webContents.capturePage()
+            fs.writeFileSync(config.destFile, image.toJPEG(100))
+            resolve(true)
+          } catch (err) {
+            console.error('[Generated planning save error]', err)
+            resolve(false)
+          } finally {
+            planningWindow.close()
+            fs.rmSync(htmlPath)
+          }
+        }, 300)
+      })
+    })
+  })
+
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
@@ -153,3 +198,12 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+export function getAssetPath(...paths) {
+  // En build : les assets sont copiés dans `resources/`
+  // En dev : on part de `app.getAppPath()`
+  const base = app.isPackaged
+    ? path.join(process.resourcesPath, 'resources')
+    : path.join(app.getAppPath(), 'resources')
+
+  return path.join(base, ...paths)
+}

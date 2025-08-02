@@ -100,6 +100,7 @@ function newDestFile() {
     .then((result) => {
       if (!result.canceled) {
         document.getElementById("identity_savepath").value = result.filePath
+        document.getElementById('generationsuccess_savepath').innerHTML = result.filePath
       } else {
         document.getElementById("identity_savepath").value = ''
       }
