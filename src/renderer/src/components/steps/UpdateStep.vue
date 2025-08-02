@@ -42,4 +42,19 @@ window.api.updateDownloaded(() => {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+#update {
+  #update_appicon {
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    background-image: url('../../assets/app_update.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+}
+</style>
