@@ -5,6 +5,7 @@ import WindowButtons from './components/WindowButtons.vue'
 import UpdateStep from './components/steps/UpdateStep.vue'
 import IntroductionStep from './components/steps/IntroductionStep.vue'
 import IdentityStep from './components/steps/IdentityStep.vue'
+import PlanningStep from './components/steps/PlanningStep.vue'
 
 onMounted(() => {
   document.documentElement.setAttribute('data-bs-theme', 'dark')
@@ -36,6 +37,7 @@ window.api.fontsList(async (event, fonts) => {
   <UpdateStep />
   <IntroductionStep />
   <IdentityStep />
+  <PlanningStep />
 
   <div id="generatedplanning"></div>
 </template>
