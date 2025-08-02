@@ -34,7 +34,7 @@ function generatePlanning(config) {
         <title>Planning</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style>${generateStyle()}</style>
+        <style>${generateStyle(config)}</style>
       </head>
       <body>
         ${generateContent(config)}
@@ -43,7 +43,7 @@ function generatePlanning(config) {
   `
 }
 
-function generateStyle() {
+function generateStyle(config) {
   let css = `
     body {
         width: 100vw;
@@ -157,10 +157,6 @@ function generateStyle() {
         line-height: 150px;
     }
 
-    .stream_single .game_genshin, .stream_single .game_wakfu {
-        color: black;
-    }
-
     .stream_single .game_icon {
         top: 75px;
         left: 75px;
@@ -251,47 +247,61 @@ function generateStyle() {
         background-repeat: no-repeat;
         background-size: cover;
     }
-
-    .game_genshin .game_icon {
-        background-image: url("${base64_encode(GenshinIcon)})");
-    }
-
-    .game_genshin .game_background {
-        background-image: url("${base64_encode(GenshinWallpaper)}");
-    }
-
-    .game_hunt .game_icon {
-        background-image: url("${base64_encode(HuntIcon)}");
-    }
-
-    .game_hunt .game_background {
-        background-image: url("${base64_encode(HuntWallpaper)}");
-    }
-
-    .game_lol .game_icon {
-        background-image: url("${base64_encode(LoLIcon)}");
-    }
-
-    .game_lol .game_background {
-        background-image: url("${base64_encode(LoLWallpaper)}");
-    }
-
-    .game_valorant .game_icon {
-        background-image: url("${base64_encode(ValorantIcon)}");
-    }
-
-    .game_valorant .game_background {
-        background-image: url("${base64_encode(ValorantWallpaper)}");
-    }
-
-    .game_wakfu .game_icon {
-        background-image: url("${base64_encode(WakfuIcon)}");
-    }
-
-    .game_wakfu .game_background {
-        background-image: url("${base64_encode(WakfuWallpaper)}");
-    }
   `
+
+  config.selectedGames.forEach((game) => {
+    if (game === "genshin") {
+      css += `
+      .game_genshin .game_icon {
+          background-image: url("${base64_encode(GenshinIcon)})");
+      }
+
+      .game_genshin .game_background {
+          background-image: url("${base64_encode(GenshinWallpaper)}");
+      }
+    `
+    } else if (game === "hunt") {
+      css += `
+      .game_hunt .game_icon {
+          background-image: url("${base64_encode(HuntIcon)}");
+      }
+
+      .game_hunt .game_background {
+          background-image: url("${base64_encode(HuntWallpaper)}");
+      }
+    `
+    } else if (game === "lol") {
+      css += `
+      .game_lol .game_icon {
+          background-image: url("${base64_encode(LoLIcon)}");
+      }
+
+      .game_lol .game_background {
+          background-image: url("${base64_encode(LoLWallpaper)}");
+      }
+    `
+    } else if (game === "valorant") {
+      css += `
+      .game_valorant .game_icon {
+          background-image: url("${base64_encode(ValorantIcon)}");
+      }
+
+      .game_valorant .game_background {
+          background-image: url("${base64_encode(ValorantWallpaper)}");
+      }
+    `
+    } else if (game === "wakfu") {
+      css += `
+      .game_wakfu .game_icon {
+          background-image: url("${base64_encode(WakfuIcon)}");
+      }
+
+      .game_wakfu .game_background {
+          background-image: url("${base64_encode(WakfuWallpaper)}");
+      }
+    `
+    }
+  })
 
   return css
 }

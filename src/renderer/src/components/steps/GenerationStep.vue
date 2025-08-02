@@ -16,6 +16,7 @@ function generatePlanning() {
     let planning = {
       date: document.getElementById('planning_desiredmonth').value,
       destFile: document.getElementById('identity_savepath').value,
+      selectedGames: [],
       streams: {}
     }
 
@@ -29,6 +30,12 @@ function generatePlanning() {
         hour: stream.dataset.streamHour,
         games: stream.dataset.streamGames.split(',')
       }
+
+      stream.dataset.streamGames.split(',').forEach((game) => {
+        if (!planning.selectedGames.includes(game)) {
+          planning.selectedGames.push(game)
+        }
+      })
     })
 
     const generationSuccess = await window.api.generatePlanning(planning)
