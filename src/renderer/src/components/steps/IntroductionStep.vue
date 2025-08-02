@@ -18,17 +18,23 @@ async function nextStep() {
       <p>
         Bienvenue dans le Générateur de Planning de Stream !
         <br />
-        Plusieurs étapes seront nécessaires pour créer le planning, mais pas d'inquiétude, c'est très simple !
+        Plusieurs étapes seront nécessaires pour créer le planning, mais pas d'inquiétude, c'est
+        très simple !
         <br />
-        Certains paramètres sont sauvegardés et seront réutilisés à chaque démarrage de l'application.
-        C'est le cas, par exemple, de l'image de fond du planning.
+        Certains paramètres sont sauvegardés et seront réutilisés à chaque démarrage de
+        l'application. C'est le cas, par exemple, de l'image de fond du planning.
       </p>
 
-      <p>Dès que tu souhaites commencer, clique sur le bouton ci-dessous pour démarrer la création de ton planning ! 🙂</p>
+      <p>
+        Dès que tu souhaites commencer, clique sur le bouton ci-dessous pour démarrer la création de
+        ton planning ! 🙂
+      </p>
     </div>
 
-    <div class="position-absolute" style="bottom: 10px; right: 10px;">
-      <button id="introduction_button_next" class="btn btn-primary" type="button" @click="nextStep">Démarrer</button>
+    <div class="position-absolute" style="bottom: 10px; right: 10px">
+      <button id="introduction_button_next" class="btn btn-primary" type="button" @click="nextStep">
+        Démarrer
+      </button>
     </div>
   </div>
 </template>

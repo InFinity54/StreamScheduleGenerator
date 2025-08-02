@@ -1,6 +1,14 @@
 import * as fs from 'fs'
 const mime = require('mime-types')
-import { addDays, startOfWeek, endOfWeek, format, getWeeksInMonth, parseISO, isSameMonth } from 'date-fns'
+import {
+  addDays,
+  startOfWeek,
+  endOfWeek,
+  format,
+  getWeeksInMonth,
+  parseISO,
+  isSameMonth
+} from 'date-fns'
 import { fr } from 'date-fns/locale'
 import * as settings from 'electron-settings'
 import { getAssetPath } from './index'
@@ -85,7 +93,7 @@ function generateStyle(config) {
     }
   `
 
-  if (settings.getSync('platformColor') === "white") {
+  if (settings.getSync('platformColor') === 'white') {
     css += `
       #channellink.platform_twitch.white * {
           color: #FFFFFF;
@@ -95,7 +103,7 @@ function generateStyle(config) {
           background-image: url("${base64_encode(twitchWhite)}");
       }
     `
-  } else if (settings.getSync('platformColor') === "black") {
+  } else if (settings.getSync('platformColor') === 'black') {
     css += `
       #channellink.platform_twitch.black * {
           color: #000000;
@@ -250,7 +258,7 @@ function generateStyle(config) {
   `
 
   config.selectedGames.forEach((game) => {
-    if (game === "genshin") {
+    if (game === 'genshin') {
       css += `
       .game_genshin .game_icon {
           background-image: url("${base64_encode(GenshinIcon)})");
@@ -260,7 +268,7 @@ function generateStyle(config) {
           background-image: url("${base64_encode(GenshinWallpaper)}");
       }
     `
-    } else if (game === "hunt") {
+    } else if (game === 'hunt') {
       css += `
       .game_hunt .game_icon {
           background-image: url("${base64_encode(HuntIcon)}");
@@ -270,7 +278,7 @@ function generateStyle(config) {
           background-image: url("${base64_encode(HuntWallpaper)}");
       }
     `
-    } else if (game === "lol") {
+    } else if (game === 'lol') {
       css += `
       .game_lol .game_icon {
           background-image: url("${base64_encode(LoLIcon)}");
@@ -280,7 +288,7 @@ function generateStyle(config) {
           background-image: url("${base64_encode(LoLWallpaper)}");
       }
     `
-    } else if (game === "valorant") {
+    } else if (game === 'valorant') {
       css += `
       .game_valorant .game_icon {
           background-image: url("${base64_encode(ValorantIcon)}");
@@ -290,7 +298,7 @@ function generateStyle(config) {
           background-image: url("${base64_encode(ValorantWallpaper)}");
       }
     `
-    } else if (game === "wakfu") {
+    } else if (game === 'wakfu') {
       css += `
       .game_wakfu .game_icon {
           background-image: url("${base64_encode(WakfuIcon)}");
@@ -307,14 +315,23 @@ function generateStyle(config) {
 }
 
 function generateContent(config) {
-  let htmlBody = generateTitle(config.date, settings.getSync('fontName'), settings.getSync('titlesColor'))
-  htmlBody += generateChannelLink(settings.getSync('platformColor'), settings.getSync('fontName'), settings.getSync('channelName'), settings.getSync('fullChannelLink'))
+  let htmlBody = generateTitle(
+    config.date,
+    settings.getSync('fontName'),
+    settings.getSync('titlesColor')
+  )
+  htmlBody += generateChannelLink(
+    settings.getSync('platformColor'),
+    settings.getSync('fontName'),
+    settings.getSync('channelName'),
+    settings.getSync('fullChannelLink')
+  )
   htmlBody += generatePlanningTable(config)
   return htmlBody
 }
 
 function generateTitle(date, font, titleColor) {
-  let formattedDate = format(parseISO(date + "-01"), 'MMMM yyyy', { locale: fr })
+  let formattedDate = format(parseISO(date + '-01'), 'MMMM yyyy', { locale: fr })
   return `<div id="title" style="font-family: '${font}'; color: ${titleColor};">PLANNING - ${formattedDate.toUpperCase()}</div>`
 }
 
@@ -328,7 +345,7 @@ function generateChannelLink(platformColor, font, username, fullLink = false) {
 }
 
 function generatePlanningTable(config) {
-  const firstDay = parseISO(config.date + "-01")
+  const firstDay = parseISO(config.date + '-01')
   const weeksInMonth = getWeeksInMonth(firstDay)
   let planningTable = `<div id="planning">`
 
@@ -353,7 +370,7 @@ function generatePlanningTable(config) {
     for (let day = 1; day <= 7; day++) {
       const currentDay = addDays(firstDayOfWeek, day - 1)
 
-      if (isSameMonth(currentDay, config.date + "-01")) {
+      if (isSameMonth(currentDay, config.date + '-01')) {
         planningTable += generateDay(currentDay, config)
       } else {
         planningTable += `<div class="col text-center" style="width: 150px !important; max-width: 150px; padding: 0 !important; margin: 0 10px 0 0 !important;"></div>`

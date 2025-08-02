@@ -10,7 +10,8 @@ window.api.noUpdateAvailable(() => {
 })
 
 window.api.updateAvailable(() => {
-  document.getElementById('update_progresstext').innerHTML = "Téléchargement de la dernière version de l'application..."
+  document.getElementById('update_progresstext').innerHTML =
+    "Téléchargement de la dernière version de l'application..."
 })
 
 window.api.updateDownloading((event, args) => {
@@ -18,7 +19,8 @@ window.api.updateDownloading((event, args) => {
 })
 
 window.api.updateDownloaded(() => {
-  document.getElementById('update_progresstext').innerHTML = "Préparation de l'installation de la mise à jour..."
+  document.getElementById('update_progresstext').innerHTML =
+    "Préparation de l'installation de la mise à jour..."
 })
 </script>
 
@@ -30,12 +32,14 @@ window.api.updateDownloaded(() => {
       <p id="update_progresstext">Vérification des mises à jour de l'application...</p>
 
       <div id="update_progressbar" class="progress w-50 mx-auto">
-        <div id="update_progressbarvalue" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"></div>
+        <div
+          id="update_progressbarvalue"
+          class="progress-bar progress-bar-striped progress-bar-animated"
+          role="progressbar"
+        ></div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

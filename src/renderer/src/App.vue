@@ -20,10 +20,14 @@ window.api.fontsList(async (event, fonts) => {
     document.getElementById('identity_font').appendChild(fontOption)
   }
 
-  document.getElementById('identity_twitchlogocolor').value = await window.settings.get('platformColor')
-  document.getElementById('identity_twitchusername').value = await window.settings.get('channelName')
-  document.getElementById('identity_twitchfulllink').checked = await window.settings.get('fullChannelLink')
-  document.getElementById('identity_custombgimage').value = await window.settings.get('backgroundImagePath')
+  document.getElementById('identity_twitchlogocolor').value =
+    await window.settings.get('platformColor')
+  document.getElementById('identity_twitchusername').value =
+    await window.settings.get('channelName')
+  document.getElementById('identity_twitchfulllink').checked =
+    await window.settings.get('fullChannelLink')
+  document.getElementById('identity_custombgimage').value =
+    await window.settings.get('backgroundImagePath')
   document.getElementById('identity_titlescolor').value = await window.settings.get('titlesColor')
   document.getElementById('identity_dayoncolor').value = await window.settings.get('dayOnColor')
   document.getElementById('identity_dayoffcolor').value = await window.settings.get('dayOffColor')

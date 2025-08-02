@@ -105,7 +105,10 @@ function addNewStream() {
 
     const cardTitle = document.createElement('h5')
     cardTitle.className = 'card-title'
-    cardTitle.innerHTML = formatDateToText(document.getElementById('planning_newstream_date').value) + '<br />' + document.getElementById('planning_newstream_hour').value.replace(':', 'h')
+    cardTitle.innerHTML =
+      formatDateToText(document.getElementById('planning_newstream_date').value) +
+      '<br />' +
+      document.getElementById('planning_newstream_hour').value.replace(':', 'h')
     cardBodyDiv.appendChild(cardTitle)
 
     const cardTextDiv = document.createElement('div')
@@ -123,14 +126,16 @@ function addNewStream() {
     deleteButton.className = 'btn btn-danger'
     deleteButton.type = 'button'
     deleteButton.textContent = 'Supprimer ce stream'
-    deleteButton.addEventListener('click', () => { streamDiv.remove() })
+    deleteButton.addEventListener('click', () => {
+      streamDiv.remove()
+    })
     cardBodyDiv.appendChild(deleteButton)
 
     newStreamModal.toggle()
     document.getElementById('planning_eventlist').appendChild(streamDiv)
     resetModal()
   } else {
-    toast.error("Un stream doit comporter au moins un jeu, une date et une heure de début.")
+    toast.error('Un stream doit comporter au moins un jeu, une date et une heure de début.')
   }
 }
 
@@ -192,7 +197,10 @@ function checkModalForm() {
     document.getElementById('planning_newstream_hour').classList.remove('is-valid')
   }
 
-  if (document.querySelectorAll('#planning_newstream_modal input[type="checkbox"]:checked').length >= 1) {
+  if (
+    document.querySelectorAll('#planning_newstream_modal input[type="checkbox"]:checked').length >=
+    1
+  ) {
     document.getElementById('planning_newstream_game_genshin').classList.remove('is-invalid')
     document.getElementById('planning_newstream_game_hunt').classList.remove('is-invalid')
     document.getElementById('planning_newstream_game_lol').classList.remove('is-invalid')
@@ -209,7 +217,8 @@ function checkModalForm() {
   return (
     document.getElementById('planning_newstream_date').value !== '' &&
     document.getElementById('planning_newstream_hour').value !== '' &&
-    document.querySelectorAll('#planning_newstream_modal input[type="checkbox"]:checked').length >= 1
+    document.querySelectorAll('#planning_newstream_modal input[type="checkbox"]:checked').length >=
+      1
   )
 }
 </script>
@@ -227,7 +236,13 @@ function checkModalForm() {
             Le moment important est arrivé : il faut désormais déterminer le contenu du planning.
             <br />
             Première question : pour quel mois souhaites-tu créer un planning ?
-            <input type="month" id="planning_desiredmonth" class="align-middle" required @change="planningMonthChange" />
+            <input
+              id="planning_desiredmonth"
+              type="month"
+              class="align-middle"
+              required
+              @change="planningMonthChange"
+            />
             <br />
             Une fois le mois sélectionné, utilise le bouton en bas à gauche de la fenêtre pour créer
             des streams pour ce mois. Tous les streams créés seront ensuite listés ci-dessous. Tu
@@ -241,26 +256,46 @@ function checkModalForm() {
     </div>
 
     <div class="step_leftmenu">
-      <button class="btn btn-primary" type="button" id="planning_button_addstream" @click="newStream">Ajouter un nouveau stream</button>
+      <button
+        id="planning_button_addstream"
+        class="btn btn-primary"
+        type="button"
+        @click="newStream"
+      >
+        Ajouter un nouveau stream
+      </button>
     </div>
 
     <div class="step_menu">
-      <button class="btn btn-secondary mr-5" type="button" id="planning_button_previous" @click="previousStep">&laquo; Précédent</button>
-      <button class="btn btn-primary" type="button" id="planning_button_next" @click="nextStep">Suivant &raquo;</button>
+      <button
+        id="planning_button_previous"
+        class="btn btn-secondary mr-5"
+        type="button"
+        @click="previousStep"
+      >
+        &laquo; Précédent
+      </button>
+      <button id="planning_button_next" class="btn btn-primary" type="button" @click="nextStep">
+        Suivant &raquo;
+      </button>
     </div>
   </div>
 
-  <div class="modal fade" id="planning_newstream_modal" tabindex="-1">
+  <div id="planning_newstream_modal" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="planning_newstream_modal_title">
+          <h1 id="planning_newstream_modal_title" class="modal-title fs-5">
             Ajouter un nouveau stream
           </h1>
         </div>
 
         <div class="modal-body">
-          <p>Pour ajouter un nouveau stream, sélectionne la date et l'heure où le stream aura lieu, ainsi que le ou les jeux qui seront diffusés. Sauvegarde ensuite le stream pour le voir apparaître dans la liste.</p>
+          <p>
+            Pour ajouter un nouveau stream, sélectionne la date et l'heure où le stream aura lieu,
+            ainsi que le ou les jeux qui seront diffusés. Sauvegarde ensuite le stream pour le voir
+            apparaître dans la liste.
+          </p>
 
           <div id="planning_newstream_modal_error" class="d-none alert alert-danger"></div>
 
@@ -268,14 +303,26 @@ function checkModalForm() {
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-floating">
-                  <input type="date" class="form-control" required id="planning_newstream_date" @change="checkModalForm" />
+                  <input
+                    id="planning_newstream_date"
+                    type="date"
+                    class="form-control"
+                    required
+                    @change="checkModalForm"
+                  />
                   <label for="planning_newstream_date">Date du stream</label>
                 </div>
               </div>
 
               <div class="col-sm-6">
                 <div class="form-floating">
-                  <input type="time" class="form-control" required id="planning_newstream_hour" @change="checkModalForm" />
+                  <input
+                    id="planning_newstream_hour"
+                    type="time"
+                    class="form-control"
+                    required
+                    @change="checkModalForm"
+                  />
                   <label for="planning_newstream_hour">Heure du stream</label>
                 </div>
               </div>
@@ -288,27 +335,65 @@ function checkModalForm() {
                 <br />
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="planning_newstream_game_genshin" value="genshin" @change="checkModalForm" />
-                  <label class="form-check-label" for="planning_newstream_game_genshin">Genshin Impact</label>
+                  <input
+                    id="planning_newstream_game_genshin"
+                    class="form-check-input"
+                    type="checkbox"
+                    value="genshin"
+                    @change="checkModalForm"
+                  />
+                  <label class="form-check-label" for="planning_newstream_game_genshin"
+                    >Genshin Impact</label
+                  >
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="planning_newstream_game_hunt" value="hunt" @change="checkModalForm" />
-                  <label class="form-check-label" for="planning_newstream_game_hunt">Hunt: Showdown</label>
+                  <input
+                    id="planning_newstream_game_hunt"
+                    class="form-check-input"
+                    type="checkbox"
+                    value="hunt"
+                    @change="checkModalForm"
+                  />
+                  <label class="form-check-label" for="planning_newstream_game_hunt"
+                    >Hunt: Showdown</label
+                  >
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="planning_newstream_game_lol" value="lol" @change="checkModalForm" />
-                  <label class="form-check-label" for="planning_newstream_game_lol">League of Legends</label>
+                  <input
+                    id="planning_newstream_game_lol"
+                    class="form-check-input"
+                    type="checkbox"
+                    value="lol"
+                    @change="checkModalForm"
+                  />
+                  <label class="form-check-label" for="planning_newstream_game_lol"
+                    >League of Legends</label
+                  >
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="planning_newstream_game_valorant" value="valorant" @change="checkModalForm" />
-                  <label class="form-check-label" for="planning_newstream_game_valorant">Valorant</label>
+                  <input
+                    id="planning_newstream_game_valorant"
+                    class="form-check-input"
+                    type="checkbox"
+                    value="valorant"
+                    @change="checkModalForm"
+                  />
+                  <label class="form-check-label" for="planning_newstream_game_valorant"
+                    >Valorant</label
+                  >
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="planning_newstream_game_wakfu" value="wakfu" @change="checkModalForm" />
+                  <input
+                    id="planning_newstream_game_wakfu"
+                    class="form-check-input"
+                    type="checkbox"
+                    value="wakfu"
+                    @change="checkModalForm"
+                  />
                   <label class="form-check-label" for="planning_newstream_game_wakfu">Wakfu</label>
                 </div>
               </div>
@@ -318,7 +403,14 @@ function checkModalForm() {
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-primary" id="planning_newstream_modal_add" @click="addNewStream">Ajouter le stream</button>
+          <button
+            id="planning_newstream_modal_add"
+            type="button"
+            class="btn btn-primary"
+            @click="addNewStream"
+          >
+            Ajouter le stream
+          </button>
         </div>
       </div>
     </div>

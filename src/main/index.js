@@ -46,10 +46,6 @@ function createWindow() {
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
-
-    setTimeout(() => {
-
-    }, 1000)
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -120,21 +116,33 @@ app.whenReady().then(() => {
 
   ipcMain.handle('settings', async (_, { method, key, value }) => {
     switch (method) {
-      case 'has': return settings.has(key)
-      case 'get': return settings.get(key)
-      case 'set': settings.set(key, value); return true
-      case 'reset': settings.reset(); return true
-      case 'delete': settings.unset(key); return true
-      default: throw new Error('Unknown method: ' + method)
+      case 'has':
+        return settings.has(key)
+      case 'get':
+        return settings.get(key)
+      case 'set':
+        settings.set(key, value)
+        return true
+      case 'reset':
+        settings.reset()
+        return true
+      case 'delete':
+        settings.unset(key)
+        return true
+      default:
+        throw new Error('Unknown method: ' + method)
     }
   })
 
   ipcMain.handle('dialog', (event, method, params) => {
-    return dialog[method](params);
-  });
+    return dialog[method](params)
+  })
 
   ipcMain.handle('generatePlanning', async (event, config) => {
-    const htmlPath = path.join(app.getPath("temp"), `StreamScheduleGenerator_Planning_${(new Date().toJSON().slice(0,10))}_${(new Date().toJSON().slice(11,16)).replace(':', '-')}.html`)
+    const htmlPath = path.join(
+      app.getPath('temp'),
+      `StreamScheduleGenerator_Planning_${new Date().toJSON().slice(0, 10)}_${new Date().toJSON().slice(11, 16).replace(':', '-')}.html`
+    )
     fs.writeFileSync(htmlPath, generatePlanning(config, settings), { encoding: 'utf8' })
 
     let planningWindow = new BrowserWindow({

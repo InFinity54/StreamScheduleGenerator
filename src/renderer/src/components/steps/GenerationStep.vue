@@ -76,7 +76,8 @@ function exitApp() {
       </p>
 
       <p>
-        Si le fichier de destination du planning existe déjà, veille à ce qu'il ne soit pas utilisé pendant la génération. Sinon, elle échouera.
+        Si le fichier de destination du planning existe déjà, veille à ce qu'il ne soit pas utilisé
+        pendant la génération. Sinon, elle échouera.
         <br />
         La génération ne prend généralement que quelques secondes.
         <br />
@@ -85,8 +86,22 @@ function exitApp() {
     </div>
 
     <div class="position-absolute" style="bottom: 10px; right: 10px">
-      <button class="btn btn-secondary mr-5" type="button" id="readyforgeneration_button_previous" @click="previousStep">Revenir en arrière</button>
-      <button class="btn btn-primary" type="button" id="readyforgeneration_button_next" @click="generatePlanning">Générer le planning</button>
+      <button
+        id="readyforgeneration_button_previous"
+        class="btn btn-secondary mr-5"
+        type="button"
+        @click="previousStep"
+      >
+        Revenir en arrière
+      </button>
+      <button
+        id="readyforgeneration_button_next"
+        class="btn btn-primary"
+        type="button"
+        @click="generatePlanning"
+      >
+        Générer le planning
+      </button>
     </div>
   </div>
 
@@ -113,7 +128,14 @@ function exitApp() {
     </div>
 
     <div class="position-absolute" style="bottom: 10px; right: 10px">
-      <button class="btn btn-primary" type="button" id="generationsuccess_button_quit" @click="exitApp">Quitter l'application</button>
+      <button
+        id="generationsuccess_button_quit"
+        class="btn btn-primary"
+        type="button"
+        @click="exitApp"
+      >
+        Quitter l'application
+      </button>
     </div>
   </div>
 
@@ -131,8 +153,22 @@ function exitApp() {
     </div>
 
     <div class="position-absolute" style="bottom: 10px; right: 10px">
-      <button class="btn btn-secondary mr-5" type="button" id="generationerror_button_quit" @click="exitApp">Quitter</button>
-      <button class="btn btn-primary" type="button" id="generationerror_button_retry" @click="generatePlanning">Réessayer</button>
+      <button
+        id="generationerror_button_quit"
+        class="btn btn-secondary mr-5"
+        type="button"
+        @click="exitApp"
+      >
+        Quitter
+      </button>
+      <button
+        id="generationerror_button_retry"
+        class="btn btn-primary"
+        type="button"
+        @click="generatePlanning"
+      >
+        Réessayer
+      </button>
     </div>
   </div>
 </template>
