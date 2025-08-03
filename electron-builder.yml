@@ -1,4 +1,4 @@
-appId: com.electron.app
+appId: fr.infinity54.streamschedulegenerator
 productName: Générateur de planning de stream
 directories:
   buildResources: build
