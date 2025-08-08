@@ -1,13 +1,13 @@
 {
-  "name": "fr.infinity54.streamschedulegenerator",
+  "name": "dev.noxelis.streamschedulegenerator",
   "productName": "Stream Schedule Generator",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Générateur automatique de planning de stream.",
   "license": "CC-BY-SA-4.0",
   "main": "./out/main/index.js",
   "author": {
     "name": "InFinity_54",
-    "email": "contact@infinity54.fr"
+    "email": "contact@noxelis.dev"
   },
   "homepage": "https://electron-vite.org",
   "scripts": {

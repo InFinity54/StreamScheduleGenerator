@@ -1,6 +1,6 @@
 provider: 'github'
 repo: 'StreamScheduleGenerator'
-owner: 'InFinity54'
+owner: 'Noxelis'
 private: false
 releaseType: 'release'
-updaterCacheDirName: fr.infinity54.streamschedulegenerator-updater
+updaterCacheDirName: dev.noxelis.streamschedulegenerator-updater
